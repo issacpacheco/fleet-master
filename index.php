@@ -109,29 +109,8 @@ if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'off'){
 		<!-- SwwetAlert -->
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 		<!-- FUNCIONES -->
-        <!-- <script type="text/javascript" src="admin/js/funciones.js"></script>  -->
+        <script type="text/javascript" src="admin/js/funciones.js"></script> 
 	</div>
-	<script>
-		function fnvalidar(){
-			$.ajax({
-				type: 'GET',
-				url: "https://api.navixy.com/v2/user/auth",
-				data: $("#LoginForm").serialize(),
-				success: function(respuesta){
-					// var datos = JSON.parse(respuesta);
-					$.ajax({
-						type: 'GET',
-						url: "https://api.navixy.com/v2/tracker/list?hash="+respuesta.hash,
-						data: $("#LoginForm").serialize(),
-						success: function(response){
-							console.log(response);
-						}
-					})
-				}
-			});
-		}
-	</script>
-
 </body>
 
 </html>

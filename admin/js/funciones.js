@@ -86,14 +86,12 @@ $(document).ready(function(){
 // }
 
 function fnvalidar(){
-
     $.ajax({
         type: "POST",
         url: "admin/scripts/login",
         data: $("#LoginForm").serialize(),
         success: function (response) {
-            console.log(response);
-            if(response==0){
+            if(response == 0){
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
@@ -101,7 +99,7 @@ function fnvalidar(){
                     footer: '<a href="">¿El problema persiste?</a>'
                 })
             }
-            if(response==1){
+            if(response == 1){
                 window.location.href = "admin/";
             }                  
         },
