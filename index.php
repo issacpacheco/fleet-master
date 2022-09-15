@@ -6,12 +6,12 @@ if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'off'){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SIAA | SETIC </title>
+	<title>FLEET MASTER | FUEL CONTROL </title>
 
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="apple-touch-icon" sizes="57x57" href="admin/images/icon/apple-icon-57x57.png">
+	<!-- <link rel="apple-touch-icon" sizes="57x57" href="admin/images/icon/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="admin/images/icon/apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="admin/images/icon/apple-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="76x76" href="admin/images/icon/apple-icon-76x76.png">
@@ -24,7 +24,7 @@ if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'off'){
 	<link rel="icon" type="imageimages/icon/png" sizes="32x32" href="admin/images/icon/favicon-32x32.png">
 	<link rel="icon" type="imageimages/icon/png" sizes="96x96" href="admin/images/icon/favicon-96x96.png">
 	<link rel="icon" type="imageimages/icon/png" sizes="16x16" href="admin/images/icon/favicon-16x16.png">
-	<link rel="manifest" href="admin/images/icon/manifest.json">
+	<link rel="manifest" href="admin/images/icon/manifest.json"> -->
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="images/icon/ms-icon-144x144.png">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300" rel="stylesheet" type="text/css"/>

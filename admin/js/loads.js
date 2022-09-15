@@ -41,6 +41,7 @@ function universalLoad(elem){
         });
     }
 }
+
 function getPageMenu(page) {
     $.ajax({
         type: "POST",
@@ -56,6 +57,25 @@ function getPageMenu(page) {
         }
     });
 }
+
+function getPageVehiculos(trackID) {
+    $.ajax({
+        type: "POST",
+        url: "ajax-get/obtener-datos",
+        // dataType: "json",
+        data: {tracker_id: trackID},
+        success: function (response) {
+            $("#contenedor").html(response);
+        },
+        failure: function (response) {
+
+        },
+        error: function (response) {
+
+        }
+    });
+}
+
 function openPopup(elem, width, height) {
     var form = $(elem).data("form");
     var page = $(elem).data("page");

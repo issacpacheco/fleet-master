@@ -22,7 +22,7 @@ if(!isset($_SESSION['vehiculos'])){
 	$_SESSION['totaldispositivos'] = $contador;
 	$_SESSION['vehiculos'] = $vehiculos;
 }else{
-	echo "LISTO TODO";
+	// echo "LISTO TODO";
 }
 
 

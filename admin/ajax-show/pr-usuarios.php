@@ -7,7 +7,7 @@ use nsfunciones\funciones;
 $info   = new usuarios();
 $fn     = new funciones();
 
-$usuarios = $info->obtener_usuarios_sistema();
+$usuarios = $info->obtener_usuarios();
 $cusuarios = $fn->cuentarray($usuarios);
 
 ?>
@@ -31,17 +31,17 @@ $cusuarios = $fn->cuentarray($usuarios);
                             <tr>
                                 <th> # </th>
                                 <th> Nombre </th>
-                                <th> Area </th>
-                                <th> Nivel </th>
+                                <th> Teléfono </th>
+                                <th> Correo </th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php for($i = 0,$a=0; $i < $cusuarios; $i++){ $a = $a+1;?>
                             <tr onclick="universalLoad(this)" data-postload="0" data-returnpage="pr-usuarios" data-form="" data-page="usuarios-edit" data-carpeta="ajax-edit" data-load="contenedor" data-valores="" data-id="<?php echo $usuarios["id"][$i]; ?>">
                                 <td><?php echo $a; ?></td>
-                                <td><?php echo $usuarios['nombre'][$i]; ?></td>
-                                <td><?php echo $usuarios['area'][$i]; ?></td>
-                                <td><?php echo $usuarios['nivel'][$i]; ?></td>
+                                <td><?php echo $usuarios['nombre_usuario'][$i]; ?></td>
+                                <td><?php echo $usuarios['telefono'][$i]; ?></td>
+                                <td><?php echo $usuarios['correo'][$i]; ?></td>
                             </tr>
                         <?php } ?>    
                         </tbody>    
