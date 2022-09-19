@@ -12,4 +12,5 @@ include_once("mysql.class.php");
 include_once("funciones.class.php");
 include_once("crearsesion.class.php");
 include_once("usuarios.class.php");
+include_once("registros.class.php");
 include_once("PHPExcel.php");

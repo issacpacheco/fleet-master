@@ -11,20 +11,6 @@ include("ajax-get/obtener-lista.php");
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height">
-    <!-- <link rel="apple-touch-icon" sizes="57x57" href="images/icon/apple-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="images/icon/apple-icon-60x60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="images/icon/apple-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="images/icon/apple-icon-76x76.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="images/icon/apple-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="images/icon/apple-icon-120x120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="images/icon/apple-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="images/icon/apple-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="images/icon/apple-icon-180x180.png">
-	<link rel="icon" type="imageimages/icon/png" sizes="192x192"  href="images/icon/android-icon-192x192.png">
-	<link rel="icon" type="imageimages/icon/png" sizes="32x32" href="images/icon/favicon-32x32.png">
-	<link rel="icon" type="imageimages/icon/png" sizes="96x96" href="images/icon/favicon-96x96.png">
-	<link rel="icon" type="imageimages/icon/png" sizes="16x16" href="images/icon/favicon-16x16.png">
-	<link rel="manifest" href="images/icon/manifest.json"> -->
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="images/icon/ms-icon-144x144.png">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300" rel="stylesheet" type="text/css"/>
@@ -55,18 +41,11 @@ include("ajax-get/obtener-lista.php");
 	<link rel="stylesheet" href="plugins/EasyAutocomplete-1.3.5/easy-autocomplete.min.css">
 	
 	<!----Charts---->
-	<!-- <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/variable-pie.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    <script src="https://code.highcharts.com/modules/item-series.js"></script> -->
 	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/highcharts-more.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
 	<script src="https://code.highcharts.com/modules/export-data.js"></script>
 	<script src="https://code.highcharts.com/modules/accessibility.js"></script>
-	<script src="https://code.highcharts.com/highcharts-more.js"></script>
-	<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
 	<!----DatePicker JQuery---->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>

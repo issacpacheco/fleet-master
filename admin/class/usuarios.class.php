@@ -8,6 +8,12 @@ class usuarios extends mysqlconsultas{
         $res = $this->consulta($qry);
         return $res;
     }
+
+    public function obtener_usuario($id){
+        $qry = "SELECT * FROM usuarios WHERE id = '$id'";
+        $res = $this->consulta($qry);
+        return $res;
+    }
 }
 
 

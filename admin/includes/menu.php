@@ -42,7 +42,7 @@
                         </a>
                     </li>
                     <li>
-                        <a onclick="getPageMenu()">
+                        <a onclick="getPageMenu('pr-registro-gasolina')">
                             <i class="fal fa-digital-tachograph white"></i>
                             <span class="white">Registro gasolina</span>
                         </a>

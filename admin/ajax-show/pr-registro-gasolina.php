@@ -1,14 +1,14 @@
 <?php
 include('../class/allClass.php');
 
-use nsusuarios\usuarios;
+use nsregistros\registros;
 use nsfunciones\funciones;
 
-$info   = new usuarios();
+$info   = new registros();
 $fn     = new funciones();
 
-$usuarios = $info->obtener_usuarios();
-$cusuarios = $fn->cuentarray($usuarios);
+$registro = $info->obtener_registros_gasolina();
+$cregistro = $fn->cuentarray($registro);
 
 ?>
 <div class="row">
@@ -16,10 +16,10 @@ $cusuarios = $fn->cuentarray($usuarios);
         <div class="panel">
             <div class="row panel-heading">
                 <div class="col-sm-6">
-                    Lista de usuarios
+                    Historial de registros
                 </div>
                 <div class="col-6 mright textright">
-                    <button id="idtest" onclick="universalLoad(this)" data-postload="0" data-regresar="pr-usuarios" data-valores="" data-form="" data-page="clientes-add" data-carpeta="ajax-add" data-load="contenedor" data-id="" class="btngral botonVerde mright"><span class="fas fa-plus-circle font16"></span><span class="letrablanca font14">
+                    <button id="idtest" onclick="universalLoad(this)" data-postload="0" data-regresar="pr-registro-gasolina" data-valores="" data-form="" data-page="registro-gasolina-add" data-carpeta="ajax-add" data-load="contenedor" data-id="" class="btngral botonVerde mright"><span class="fas fa-plus-circle font16"></span><span class="letrablanca font14">
                         <span class="letrablanca font14">Agregar</span>
                     </button> 
                 </div>
@@ -30,18 +30,20 @@ $cusuarios = $fn->cuentarray($usuarios);
                         <thead>
                             <tr>
                                 <th> # </th>
-                                <th> Nombre </th>
-                                <th> Teléfono </th>
-                                <th> Correo </th>
+                                <th> Empresa </th>
+                                <th> Fecha </th>
+                                <th> Cantidad </th>
+                                <th> Importe </th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php for($i = 0,$a=0; $i < $cusuarios; $i++){ $a = $a+1;?>
-                            <tr onclick="universalLoad(this)" data-postload="0" data-returnpage="pr-usuarios" data-form="" data-page="usuarios-edit" data-carpeta="ajax-edit" data-load="contenedor" data-valores="" data-id="<?php echo $usuarios["id"][$i]; ?>">
+                        <?php for($i = 0,$a=0; $i < $cregistro; $i++){ $a = $a+1;?>
+                            <tr onclick="universalLoad(this)" data-postload="0" data-returnpage="pr-registro-gasolina" data-form="" data-page="registro-gasolina-edit" data-carpeta="ajax-edit" data-load="contenedor" data-valores="" data-id="<?php echo $registro["id"][$i]; ?>">
                                 <td><?php echo $a; ?></td>
-                                <td><?php echo $usuarios['nombre_usuario'][$i]; ?></td>
-                                <td><?php echo $usuarios['telefono'][$i]; ?></td>
-                                <td><?php echo $usuarios['correo'][$i]; ?></td>
+                                <td><?php echo $registro['empresa'][$i]; ?></td>
+                                <td><?php echo $registro['fch_carga'][$i]; ?></td>
+                                <td><?php echo $registro['cantidad_litros'][$i]; ?></td>
+                                <td><?php echo $registro['importe'][$i]; ?></td>
                             </tr>
                         <?php } ?>    
                         </tbody>    

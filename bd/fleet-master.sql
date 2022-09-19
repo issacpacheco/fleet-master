@@ -11,7 +11,7 @@
  Target Server Version : 100422
  File Encoding         : 65001
 
- Date: 15/09/2022 16:02:23
+ Date: 19/09/2022 13:12:40
 */
 
 SET NAMES utf8mb4;
@@ -51,11 +51,12 @@ CREATE TABLE `usuarios`  (
   `telefono` varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `correo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of usuarios
 -- ----------------------------
 INSERT INTO `usuarios` VALUES (1, 'ventas@fleetmaster.mx', 'EXTREME', 'FLEET', 'MASTER', 'MX', '9991234532', 'ventas@fleetmaster.mx');
+INSERT INTO `usuarios` VALUES (2, 'franciscoe.briceno@cert.edu.mx', '827ccb0eea8a706c4c34a16891f84e7b', 'Isaac Alberto', 'Pacheco', 'P&eacute;rez', '9991416887', 'isaacpacheco.go@gmail.com');
 
 SET FOREIGN_KEY_CHECKS = 1;
