@@ -3,7 +3,7 @@ session_start();
 if(isset($_SESSION['hash'])){
 		$trackerID = filter_input(INPUT_POST, 'tracker_id', FILTER_SANITIZE_NUMBER_INT);
 ?>
-<!-- <style>
+<style>
 	.highcharts-figure .chart-container {
     width: 300px;
     height: 200px;
@@ -64,263 +64,156 @@ if(isset($_SESSION['hash'])){
         margin: 0 auto;
     }
 }
-</style> -->
+</style>
 <figure class="highcharts-figure">
-    <div id="container-speed" class="chart-container"></div>
-    <div id="container-rpm" class="chart-container"></div>
+    <!-- <div id="container-speed" class="chart-container"></div> -->
+    <!-- <div id="container-rpm" class="chart-container"></div> -->
+	<input type="hidden" name="" id="hash" value="<?php echo $_SESSION['hash']; ?>">
+	<input type="hidden" name="" id="trackerid" value="<?php echo $trackerID; ?>">
+	<div id="container"></div>
     <p class="highcharts-description">
         Grafica de gasolina del dispositivo <?php echo $trackerID ?>
     </p>
 </figure>
 <script>
-	var gaugeOptions = {
-		chart: {
-			type: 'solidgauge'
-		},
+	// window.onload = cargargrafica();
+	$(document).ready(function(){
+		cargargrafica();
+	})
+	function cargargrafica(){
+		var hash = document.getElementById("hash").value;
+		var trackerid = document.getElementById("trackerid").value;
+		Highcharts.chart('container', {
+			chart: {
+				type: 'gauge',
+				plotBackgroundColor: null,
+				plotBackgroundImage: null,
+				plotBorderWidth: 0,
+				plotShadow: false,
+				height: '80%'
+			},
 
-		title: null,
-
-		pane: {
-			center: ['50%', '85%'],
-			size: '140%',
-			startAngle: -90,
-			endAngle: 90,
-			background: {
-				backgroundColor:
-					Highcharts.defaultOptions.legend.backgroundColor || '#EEE',
-				innerRadius: '60%',
-				outerRadius: '100%',
-				shape: 'arc'
-			}
-		},
-
-		exporting: {
-			enabled: false
-		},
-
-		tooltip: {
-			enabled: false
-		},
-
-		// the value axis
-		yAxis: {
-			stops: [
-				[0.1, '#DF5353'], // red DF5353
-				[0.5, '#DDDF0D'], // yellow
-				[0.9, '#55BF3B'] // green 55BF3B
-			],
-			lineWidth: 0,
-			tickWidth: 0,
-			minorTickInterval: null,
-			tickAmount: 2,
 			title: {
-				y: -70
+				text: 'Gasolina'
 			},
-			labels: {
-				y: 16
-			}
-		},
 
-		plotOptions: {
-			solidgauge: {
-				dataLabels: {
-					y: 5,
-					borderWidth: 0,
-					useHTML: true
-				}
-			}
-		}
-	};
-	$.ajax({
-			type: "POST",
-			url: "https://api.navixy.com/v2/tracker/readings/list",
-			// dataType: "json",
-			data: {hash: '<?php echo $_SESSION['hash'] ?>', tracker_id: <?php echo $trackerID ?>},
-			success: function (response) {
-				for(var a = 0; a < response.inputs.length; a++){
-					if(response.inputs[a].label == 'DIESEL'){
-						var chartSpeed = Highcharts.chart('container-speed', Highcharts.merge(gaugeOptions, {
-							yAxis: {
-								min: response.inputs[a].min_value,
-								max: response.inputs[a].max_value,
-								title: {
-									text: 'Gasolina'
-								}
-							},
+			pane: {
+				startAngle: -90,
+				endAngle: 89.9,
+				background: null,
+				center: ['50%', '75%'],
+				size: '110%'
+			},
 
-							credits: {
-								enabled: false
-							},
-
-							series: [{
-								name: 'Gasolina',
-								data: [0],
-								dataLabels: {
-									format:
-										'<div style="text-align:center">' +
-										'<span style="font-size:25px">{y}</span><br/>' +
-										'<span style="font-size:12px;opacity:0.4">km/h</span>' +
-										'</div>'
-								},
-								tooltip: {
-									valueSuffix: ' Lts'
-								}
-							}]
-
-						}));
-						setInterval(function () {
-							var point,
-								newVal,
-								inc;
-							if (chartSpeed) {
-								point = chartSpeed.series[0].points[0];
-								for(var b = 0; b < response.inputs.length; b++){
-									if(response.inputs[b].label == 'DIESEL'){
-										inc = Number(response.inputs[b].value);
-									}
-								}
-								point.update(inc);
-							}
-						}, 1000);
+			// the value axis
+			yAxis: {
+				min: 0.00,
+				max: 150.00,
+				tickPixelInterval: 72,
+				tickPosition: 'inside',
+				tickColor: Highcharts.defaultOptions.chart.backgroundColor || '#FFFFFF',
+				tickLength: 20,
+				tickWidth: 2,
+				minorTickInterval: null,
+				labels: {
+					distance: 20,
+					style: {
+						fontSize: '14px'
 					}
-				}
+				},
+				// stops: [
+				// 	[0.1, '#DF5353'], // red DF5353
+				// 	[0.5, '#DDDF0D'], // yellow
+				// 	[0.9, '#55BF3B'] // green 55BF3B
+				// ],
+				plotBands: [{
+					from: 0,
+					to: 120,
+					color: '#DF5353', // red
+					thickness: 20
+				}, {
+					from: 120,
+					to: 160,
+					color: '#DDDF0D', // yellow
+					thickness: 20
+				}, {
+					from: 160,
+					to: 200,
+					color: '#55BF3B', // green
+					thickness: 20
+				}]
 			},
-			failure: function (response) {
 
-			},
-			error: function (response) {
-
-			}
-		})
-</script>
-<?php
-}else{
-	// echo "NO HAY DATOS";
-}
-if(isset($_SESSION['hash'])){
-		$trackerID = filter_input(INPUT_POST, 'tracker_id', FILTER_SANITIZE_NUMBER_INT);
-?>
-?>
-<script>
-	var gaugeOptions = {
-		chart: {
-			type: 'solidgauge'
-		},
-
-		title: null,
-
-		pane: {
-			center: ['50%', '85%'],
-			size: '140%',
-			startAngle: -90,
-			endAngle: 90,
-			background: {
-				backgroundColor:
-					Highcharts.defaultOptions.legend.backgroundColor || '#EEE',
-				innerRadius: '60%',
-				outerRadius: '100%',
-				shape: 'arc'
-			}
-		},
-
-		exporting: {
-			enabled: false
-		},
-
-		tooltip: {
-			enabled: false
-		},
-
-		// the value axis
-		yAxis: {
-			stops: [
-				[0.1, '#DF5353'], // red DF5353
-				[0.5, '#DDDF0D'], // yellow
-				[0.9, '#55BF3B'] // green 55BF3B
-			],
-			lineWidth: 0,
-			tickWidth: 0,
-			minorTickInterval: null,
-			tickAmount: 2,
-			title: {
-				y: -70
-			},
-			labels: {
-				y: 16
-			}
-		},
-
-		plotOptions: {
-			solidgauge: {
+			series: [{
+				name: 'Speed',
+				data: [0],
+				tooltip: {
+					valueSuffix: ' Litros'
+				},
 				dataLabels: {
-					y: 5,
+					format: '{y} Litros',
 					borderWidth: 0,
-					useHTML: true
-				}
-			}
-		}
-	};
-	$.ajax({
-			type: "POST",
-			url: "https://api.navixy.com/v2/tracker/readings/list",
-			// dataType: "json",
-			data: {hash: '<?php echo $_SESSION['hash'] ?>', tracker_id: <?php echo $trackerID ?>},
-			success: function (response) {
-				for(var a = 0; a < response.inputs.length; a++){
-					if(response.inputs[a].label == 'DIESEL'){
-						var chartSpeed = Highcharts.chart('container-speed', Highcharts.merge(gaugeOptions, {
-							yAxis: {
-								min: response.inputs[a].min_value,
-								max: response.inputs[a].max_value,
-								title: {
-									text: 'Gasolina'
-								}
-							},
-
-							credits: {
-								enabled: false
-							},
-
-							series: [{
-								name: 'Gasolina',
-								data: [0],
-								dataLabels: {
-									format:
-										'<div style="text-align:center">' +
-										'<span style="font-size:25px">{y}</span><br/>' +
-										'<span style="font-size:12px;opacity:0.4">km/h</span>' +
-										'</div>'
-								},
-								tooltip: {
-									valueSuffix: ' Lts'
-								}
-							}]
-
-						}));
-						setInterval(function () {
-							var point,
-								newVal,
-								inc;
-							if (chartSpeed) {
-								point = chartSpeed.series[0].points[0];
-								for(var b = 0; b < response.inputs.length; b++){
-									if(response.inputs[b].label == 'DIESEL'){
-										inc = Number(response.inputs[b].value);
-									}
-								}
-								point.update(inc);
-							}
-						}, 1000);
+					color: (
+						Highcharts.defaultOptions.title &&
+						Highcharts.defaultOptions.title.style &&
+						Highcharts.defaultOptions.title.style.color
+					) || '#333333',
+					style: {
+						fontSize: '16px'
 					}
+				},
+				dial: {
+					radius: '80%',
+					backgroundColor: 'gray',
+					baseWidth: 12,
+					baseLength: '0%',
+					rearLength: '0%'
+				},
+				pivot: {
+					backgroundColor: 'gray',
+					radius: 6
 				}
-			},
-			failure: function (response) {
+			}]
+		});
+		setInterval(() => {
+			$.ajax({
+				type: "POST",
+				url: "https://api.navixy.com/v2/tracker/readings/list",
+				// dataType: "json",
+				data: {hash: '<?php echo $_SESSION['hash'] ?>', tracker_id: <?php echo $trackerID; ?>},
+				success: function (response) {
+					console.log(response);
+					for(var a = 0; a < response.inputs.length; a++){
+						if(response.inputs[a].label == 'DIESEL'){
+							const chart = Highcharts.charts[0];
+							valor_min = Number(response.inputs[a].min_value);
+							valor_max = Number(response.inputs[a].max_value);
+							chart.yAxis[0].setExtremes(valor_min,valor_max);
+						}
+					}
+					// setInterval(() => {
+						const chart = Highcharts.charts[0];
+						if (chart && !chart.renderer.forExport) {
+							const point = chart.series[0].points[0];
+							for(var b = 0; b < response.inputs.length; b++){
+							if(response.inputs[b].label == 'DIESEL'){
+									inc = Number(response.inputs[b].value);
+								}
+							}
+							point.update(inc);
+						}
+					// }, 1000);
+				},
+				failure: function (response) {
 
-			},
-			error: function (response) {
+				},
+				error: function (response) {
 
-			}
-		})
+				}
+			});
+		}, 5000);
+	}
+	
 </script>
 <?php
 }else{
