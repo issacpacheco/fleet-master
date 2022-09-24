@@ -62,7 +62,7 @@
                     $json = json_encode($jsonvehiculos);
                     $json = json_decode($json);
                     for($i=0;$i<$_SESSION["totaldispositivos"];$i++){ 
-                        if($json[$i]->ID == '1625513' || $json[$i]->ID == '768858'){ ?>
+                        if($json[$i]->ID == '1625513' || $json[$i]->ID == '768858' || $json[$i]->ID == '1632526'){ ?>
                         <li>
                             <a onclick="getPageVehiculos(<?php echo $json[$i]->ID ?>)">
                                 <i class="fal fa-car white"></i>
