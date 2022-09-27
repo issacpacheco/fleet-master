@@ -2,6 +2,20 @@
 session_start();
 if(isset($_SESSION['hash'])){
 		$trackerID = filter_input(INPUT_POST, 'tracker_id', FILTER_SANITIZE_NUMBER_INT);
+
+		for($p = 0; $p < $_SESSION["totaldispositivos"]; $p++){
+			if(array_search($trackerID, $_SESSION['vehiculos'][$p])){
+				$lista_sensores = $_SESSION['vehiculos'][$p]['lista_sensores'];
+				for($s = 0; $s < count($lista_sensores); $s++){
+					if(array_search('DIESEL', $_SESSION['vehiculos'][$p]['lista_sensores'][$s])){
+						$sensor_id =  $_SESSION['vehiculos'][$p]['lista_sensores'][$s]['sensor_id'];
+					}
+				}
+			}
+		}
+		
+
+		// $sensor_id = $sendsor;
 ?>
 <!-- <style>
 	.highcharts-figure .chart-container {
@@ -109,7 +123,7 @@ if(isset($_SESSION['hash'])){
 		
 		$('#fechas').daterangepicker({
 			"locale": {
-				"format": "YYYY-MM-DD HH:mm:ss:ss",
+				"format": "YYYY-MM-DD HH:mm:ss",
 				"separator": " / ",
 				"applyLabel": "Seleccionar",
 				"cancelLabel": "Cancelar",
@@ -271,15 +285,46 @@ if(isset($_SESSION['hash'])){
 </script>
 <script>
 	function generarreporte(){
-		var titulo 	= document.getElementById("nombre_reporte").value;
-		var fecha	= document.getElementById("fechas").value;
-		const rango_fecha = fecha.split(' / ');
-		var hash 	= "<?php echo $_SESSION['hash'] ?>";
-		var tracker = <?php echo $trackerID ?>;
-		var from	= rango_fecha[0];
-		var to		= rango_fecha[1];
-		var timefil = {"from": "00:00:00", "to": "23:59:59", "weekdays": [1,2,3,4,5,6,7]};
-		var plugin  = {"details_interval_seconds": 300, "plugin_id": 9, "show_seconds": false, "graph_type": "time", "smoothing": false, "sensors": [{"tracker_id": tracker, "sensor_id": 1869214}]};
+		var titulo 			= document.getElementById("nombre_reporte").value;
+		var fecha			= document.getElementById("fechas").value;
+		const rango_fecha 	= fecha.split(' / ');
+		var hash 			= "<?php echo $_SESSION['hash'] ?>";
+		var sensor_id 		= <?php echo $sensor_id ?>;
+		var tracker 		= <?php echo $trackerID ?>;
+		var from			= rango_fecha[0];
+		var to				= rango_fecha[1];
+		var timefil 		= {"from": "00:00:00", "to": "23:59:59", "weekdays": [1,2,3,4,5,6,7]};
+		var plugin  		= [
+								{
+									"details_interval_seconds": 300, 
+									"plugin_id": 9, 
+									"show_seconds": false, 
+									"graph_type": "time", 
+									"smoothing": false, 
+									"sensors": [
+										{
+											"tracker_id": tracker, 
+											"sensor_id": sensor_id
+										}
+									]
+								},
+								{
+									"show_seconds": false,
+									"plugin_id": 10,
+									"graph_type": "mileage",
+									"detailed_by_dates": true,
+									"include_summary_sheet_only": false,
+									"use_ignition_data_for_consumption": false,
+									"include_mileage_plot": false,
+									"filter": true,
+									"include_speed_plot": false,
+									"smoothing": false,
+									"surge_filter": true,
+									"surge_filter_threshold": 0.2,
+									"speed_filter": false,
+									"speed_filter_threshold": 10
+								}
+							];
 
 		var datos 	= "hash="+encodeURI(hash)+
 					  "&title="+encodeURI(titulo)+
