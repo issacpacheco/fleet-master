@@ -6,7 +6,7 @@
 .navigation:after,
 #login-page:after {
   background: #2bbcce;
-  background: linear-gradient(to bottom, rgba(43,188,206,0.75) 5%, rgba(43, 188, 250, 0.75) 100%);
+  background: linear-gradient(to bottom, rgba(46, 122, 132, 0.75) 5%, rgba(60, 137, 173, 0.75) 100%);
 }
 
 body.no-bg-img .navigation:after {
@@ -26,7 +26,7 @@ body.no-bg-img .navigation:after {
 
 .pace .pace-progress {
   background: #2bbcce;
-  background: linear-gradient(to right, rgba(43,188,206,0) 5%, rgba(43, 188, 250, 0.75) 100%);
+  background: linear-gradient(to right, rgba(76, 158, 169, 0.75) 5%, rgba(45, 89, 108, 0.75) 100%);
 }
 
 .colorboton{
