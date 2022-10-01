@@ -17,68 +17,6 @@ if(isset($_SESSION['hash'])){
 
 		// $sensor_id = $sendsor;
 ?>
-<!-- <style>
-	.highcharts-figure .chart-container {
-    width: 300px;
-    height: 200px;
-    float: left;
-}
-
-.highcharts-figure,
-.highcharts-data-table table {
-    width: 600px;
-    margin: 0 auto;
-}
-
-.highcharts-data-table table {
-    font-family: Verdana, sans-serif;
-    border-collapse: collapse;
-    border: 1px solid #ebebeb;
-    margin: 10px auto;
-    text-align: center;
-    width: 100%;
-    max-width: 500px;
-}
-
-.highcharts-data-table caption {
-    padding: 1em 0;
-    font-size: 1.2em;
-    color: #555;
-}
-
-.highcharts-data-table th {
-    font-weight: 600;
-    padding: 0.5em;
-}
-
-.highcharts-data-table td,
-.highcharts-data-table th,
-.highcharts-data-table caption {
-    padding: 0.5em;
-}
-
-.highcharts-data-table thead tr,
-.highcharts-data-table tr:nth-child(even) {
-    background: #f8f8f8;
-}
-
-.highcharts-data-table tr:hover {
-    background: #f1f7ff;
-}
-
-@media (max-width: 600px) {
-    .highcharts-figure,
-    .highcharts-data-table table {
-        width: 100%;
-    }
-
-    .highcharts-figure .chart-container {
-        width: 300px;
-        float: none;
-        margin: 0 auto;
-    }
-}
-</style> -->
 <div class="row">
 	<div class="col-sm-4">
 		<label>Titulo del reporte</label>
@@ -247,7 +185,7 @@ if(isset($_SESSION['hash'])){
 									format:
 										'<div style="text-align:center">' +
 										'<span style="font-size:25px">{y}</span><br/>' +
-										'<span style="font-size:12px;opacity:0.4">Listros</span>' +
+										'<span style="font-size:12px;opacity:0.9">Litros</span>' +
 										'</div>'
 								},
 								tooltip: {
@@ -294,20 +232,20 @@ if(isset($_SESSION['hash'])){
 		var from			= rango_fecha[0];
 		var to				= rango_fecha[1];
 		var timefil 		= {"from": "00:00:00", "to": "23:59:59", "weekdays": [1,2,3,4,5,6,7]};
-		var plugin  		= [
-								{
-									"details_interval_seconds": 300, 
-									"plugin_id": 9, 
-									"show_seconds": false, 
-									"graph_type": "time", 
-									"smoothing": false, 
-									"sensors": [
-										{
-											"tracker_id": tracker, 
-											"sensor_id": sensor_id
-										}
-									]
-								},
+		var plugin  		= 
+								// {
+								// 	"details_interval_seconds": 300, 
+								// 	"plugin_id": 9, 
+								// 	"show_seconds": false, 
+								// 	"graph_type": "time", 
+								// 	"smoothing": false, 
+								// 	"sensors": [
+								// 		{
+								// 			"tracker_id": tracker, 
+								// 			"sensor_id": sensor_id
+								// 		}
+								// 	]
+								// },
 								{
 									"show_seconds": false,
 									"plugin_id": 10,
@@ -324,7 +262,7 @@ if(isset($_SESSION['hash'])){
 									"speed_filter": false,
 									"speed_filter_threshold": 10
 								}
-							];
+							;
 
 		var datos 	= "hash="+encodeURI(hash)+
 					  "&title="+encodeURI(titulo)+

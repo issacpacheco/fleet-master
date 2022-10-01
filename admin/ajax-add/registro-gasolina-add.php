@@ -54,6 +54,30 @@ $fn         = new funciones();
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="form-wrapper col-sm-4">
+                        <label for="">Autoriza</label>
+                        <div class="form-group">
+                            <input type="text" name="autoriza" id="autoriza" value="" class="form-control" placeholder="Nombre de la persona que autorizo la carga">
+                        </div>
+                    </div>
+                    <div class="form-wrapper col-sm-4">
+                        <label for="">Vehiculo que se cargo</label>
+                        <div class="form-group">
+                            <select name="id_tracker" id="id_tracker" class="form-control">
+                                <option value="0" selected>Selecciona un vehiculo</option>
+                            <?php 
+                                $jsonvehiculos = $_SESSION['vehiculos'];
+                                $json = json_encode($jsonvehiculos);
+                                $json = json_decode($json);
+                                for($i=0;$i<$_SESSION["totaldispositivos"];$i++){ 
+                                    if($json[$i]->ID == '1625513' || $json[$i]->ID == '768858' || $json[$i]->ID == '1632526'){ ?>
+                                <option value="<?php echo $json[$i]->ID; ?>"><?php echo $json[$i]->nombre; ?></option>
+                            <?php }} ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </form>
             <div class="mright textright">
                 <button type="button" class="btnRegresar right btngral" onclick="saveInfo('registro-gasolina-add', 'pr-registro-gasolina', this);">

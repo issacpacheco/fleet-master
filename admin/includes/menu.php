@@ -51,7 +51,7 @@
             </li>
             
             <li>
-                <a href="#submenuDispositivos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <a href="" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" onclick="getPageVehiculos()">
                     <i class="fal fa-cars"></i>
                     <span>Vehiculos</span>
                 </a>

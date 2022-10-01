@@ -61,9 +61,9 @@ function getPageMenu(page) {
 function getPageVehiculos(trackID) {
     $.ajax({
         type: "POST",
-        url: "ajax-get/obtener-datos",
+        url: "ajax-get/datos-vehiculos",
         // dataType: "json",
-        data: {tracker_id: trackID},
+        // data: {tracker_id: trackID},
         success: function (response) {
             $("#contenedor").html(response);
         },
