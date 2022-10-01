@@ -8,6 +8,11 @@ class registros extends mysqlconsultas{
         $res = $this->consulta($qry);
         return $res;
     }
+    public function obtener_ultima_carga($id){
+        $qry = "SELECT * FROM registro_gasolina WHERE id_tracker = $id ORDER BY id DESC LIMIT 1";
+        $res = $this->consulta($qry);
+        return $res;
+    }
 }
 
 

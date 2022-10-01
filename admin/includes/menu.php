@@ -56,7 +56,7 @@
                     <span>Vehiculos</span>
                 </a>
                 
-                <ul class="collapse nav primary essubmenu" id="submenuDispositivos">
+                <!-- <ul class="collapse nav primary essubmenu" id="submenuDispositivos">
                 <?php 
                     $jsonvehiculos = $_SESSION['vehiculos'];
                     $json = json_encode($jsonvehiculos);
@@ -71,7 +71,7 @@
                         </li>
                 <?php   }else{} ?>
                 <?php } ?>
-                </ul>
+                </ul> -->
                 
             </li>
         </ul>
