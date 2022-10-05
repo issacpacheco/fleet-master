@@ -235,7 +235,7 @@ include("ajax-get/obtener-lista.php");
         </div>
 
     </div>
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		function e(q) {
 			document.body.appendChild( document.createTextNode(q) );
 			document.body.appendChild( document.createElement("BR") );
@@ -252,7 +252,7 @@ include("ajax-get/obtener-lista.php");
 			if(t) clearTimeout(t);
 			contadorInactividad();
 		}
-	</script>
+	</script> -->
 </body>
 
 </html>

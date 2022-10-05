@@ -74,6 +74,12 @@
                 </ul> -->
                 
             </li>
+            <li>
+                <a href="https://tracking.fleetmaster.mx/#/pro-ui/reports/reports" target="_blank">
+                    <i class="fal fa-file-chart-line"></i>
+                    <span>Generar reportes   <i class="fal fa-external-link"></i></span>
+                </a>
+            </li>
         </ul>
         
         <div class="time text-center">

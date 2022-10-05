@@ -98,7 +98,13 @@ $fn = new funciones();
                     </h2>
                     <div id="collapseExample_<?php echo $json[$i]->ID ?>" class="collapse" aria-labelledby="headingTwo_<?php echo $json[$i]->ID ?>" data-bs-parent="#accordionExample" style="">
                         <div class="accordion-body">
+                            <h3>Seguimiento del vehiculo en la plataforma principal <a href="https://tracking.fleetmaster.mx/#/online/trackers/<?php echo $json[$i]->ID ?>"><i class="fal fa-external-link"></i></a></h3>
+                        </div>
+                        <div class="accordion-body">
                             <h3> Ultima carga de gasolina: <?php echo isset($ultimo_registro['cantidad_litros'][0]) ? $ultimo_registro['cantidad_litros'][0] : "No hay información"; ?></h3>
+                        </div>
+                        <div class="accordion-body">
+                            <h3 id="dato-gps_<?php echo $json[$i]->ID ?>"></h3>
                         </div>
                     </div>
                 </div>
@@ -255,5 +261,31 @@ $fn = new funciones();
     }, 3000);
 
 	
+</script>
+
+<script>
+    $(document).ready(function(){
+        ultimo_dato_gps();
+    })
+    function ultimo_dato_gps(){
+        var dato_gps = document.getElementById("dato-gps_<?php echo $json[$i]->ID ?>").textContent;
+        if(dato_gps == ""){
+            $.ajax({
+                type: "POST",
+                url: "ajax-get/obtener-ultimo-reporte-gps.php",
+                data: {id_track: <?php echo $json[$i]->ID ?>},
+                success: function (response){
+                    var content = JSON.parse(response);
+
+                    $("#dato-gps_<?php echo $json[$i]->ID ?>").text("El ultimo registro del vehiculos fue en la locacion: "+content.end_address)
+                }
+            })
+        }else{
+            setInterval({
+
+            }, 300000)
+        }
+    }
+    
 </script>
 <?php } }?>
