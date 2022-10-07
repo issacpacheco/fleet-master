@@ -4,8 +4,8 @@ if(!isset($_SESSION['vehiculos'])){
     
 }else{
 	// echo "LISTO TODO";
-    // $id_track = filter_input(INPUT_POST, "id_tracker", FILTER_SANITIZE_NUMBER_INT);
-    $id_track = "994159";
+    $id_track = filter_input(INPUT_POST, "id_track", FILTER_SANITIZE_NUMBER_INT);
+    // $id_track = "994159";
     $anioActual = date("Y");
     $mesActual = date("n");
     $cantidadDias = cal_days_in_month(CAL_GREGORIAN, $mesActual, $anioActual);

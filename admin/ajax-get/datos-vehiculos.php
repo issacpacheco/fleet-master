@@ -74,7 +74,11 @@ $fn = new funciones();
         $json = json_encode($jsonvehiculos);
         $json = json_decode($json);
         for($i=0;$i<$_SESSION["totaldispositivos"];$i++){ 
-            if($json[$i]->ID == '1625513' || $json[$i]->ID == '768858' || $json[$i]->ID == '1632526'){ 
+            for($a = 0; $a < count($json[$i]->lista_sensores); $a++){
+                if($json[$i]->lista_sensores[$a]->nombre_sensor == "DIESEL"){
+
+              
+            // if($json[$i]->ID == '1625513' || $json[$i]->ID == '768858' || $json[$i]->ID == '1632526'){ 
                $ultimo_registro = $registro->obtener_ultima_carga($json[$i]->ID); ?>
 	<div class="col-lg-6">
 		<figure class="highcharts-figure">
@@ -126,14 +130,17 @@ $fn = new funciones();
             </div> -->
         </div>
 	</div>
-    <?php } }?>
+    <?php   }
+            }}?>
 </div>
 <?php 
         $jsonvehiculos = $_SESSION['vehiculos'];
         $json = json_encode($jsonvehiculos);
         $json = json_decode($json);
         for($i=0;$i<$_SESSION["totaldispositivos"];$i++){ 
-            if($json[$i]->ID == '1625513' || $json[$i]->ID == '768858' || $json[$i]->ID == '1632526'){ ?>
+            for($a = 0; $a < count($json[$i]->lista_sensores); $a++){
+                if($json[$i]->lista_sensores[$a]->nombre_sensor == "DIESEL"){
+            //if($json[$i]->ID == '1625513' || $json[$i]->ID == '768858' || $json[$i]->ID == '1632526'){ ?>
 <script>
 	// window.onload = cargargrafica();
 	var gaugeOptions = {
@@ -275,9 +282,18 @@ $fn = new funciones();
                 url: "ajax-get/obtener-ultimo-reporte-gps.php",
                 data: {id_track: <?php echo $json[$i]->ID ?>},
                 success: function (response){
-                    var content = JSON.parse(response);
+                    if(response == 'sin datos'){
+                        $("#dato-gps_<?php echo $json[$i]->ID ?>").text("El ultimo registro del vehiculos fue en la locacion: "+"Sin datos");
+                    }else{
+                        var content = JSON.parse(response);
+                        if(response.end_address == undefined){
+                            $("#dato-gps_<?php echo $json[$i]->ID ?>").text("El ultimo registro del vehiculos fue en la locacion: "+content.start_address);
+                        }else{
+                            $("#dato-gps_<?php echo $json[$i]->ID ?>").text("El ultimo registro del vehiculos fue en la locacion: "+content.end_address);
+                        }
 
-                    $("#dato-gps_<?php echo $json[$i]->ID ?>").text("El ultimo registro del vehiculos fue en la locacion: "+content.end_address)
+                        
+                    }
                 }
             })
         }else{
@@ -288,4 +304,4 @@ $fn = new funciones();
     }
     
 </script>
-<?php } }?>
+<?php }}}?>
