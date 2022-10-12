@@ -76,6 +76,24 @@ function getPageVehiculos(trackID) {
     });
 }
 
+function getPageVehiculosLis(trackID) {
+    $.ajax({
+        type: "POST",
+        url: "ajax-get/datos-tabla-vehiculos",
+        // dataType: "json",
+        // data: {tracker_id: trackID},
+        success: function (response) {
+            $("#contenedor").html(response);
+        },
+        failure: function (response) {
+
+        },
+        error: function (response) {
+
+        }
+    });
+}
+
 function openPopup(elem, width, height) {
     var form = $(elem).data("form");
     var page = $(elem).data("page");

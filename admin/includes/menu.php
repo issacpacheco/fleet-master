@@ -53,26 +53,14 @@
             <li>
                 <a href="" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" onclick="getPageVehiculos()">
                     <i class="fal fa-cars"></i>
-                    <span>Vehiculos</span>
+                    <span>Graficas de vehiculos</span>
                 </a>
-                
-                <!-- <ul class="collapse nav primary essubmenu" id="submenuDispositivos">
-                <?php 
-                    $jsonvehiculos = $_SESSION['vehiculos'];
-                    $json = json_encode($jsonvehiculos);
-                    $json = json_decode($json);
-                    for($i=0;$i<$_SESSION["totaldispositivos"];$i++){ 
-                        if($json[$i]->ID == '1625513' || $json[$i]->ID == '768858' || $json[$i]->ID == '1632526'){ ?>
-                        <li>
-                            <a onclick="getPageVehiculos(<?php echo $json[$i]->ID ?>)">
-                                <i class="fal fa-car white"></i>
-                                <span class="white"><?php echo $json[$i]->nombre; ?></span>
-                            </a>
-                        </li>
-                <?php   }else{} ?>
-                <?php } ?>
-                </ul> -->
-                
+            </li>
+            <li>
+                <a href="" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" onclick="getPageVehiculosLis()">
+                    <i class="fal fa-cars"></i>
+                    <span>Lista de vehiculos</span>
+                </a>
             </li>
             <li>
                 <a href="https://tracking.fleetmaster.mx/#/pro-ui/reports/reports" target="_blank">

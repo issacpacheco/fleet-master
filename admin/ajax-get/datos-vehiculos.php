@@ -75,12 +75,12 @@ $fn = new funciones();
         $json = json_decode($json);
         for($i=0;$i<$_SESSION["totaldispositivos"];$i++){ 
             for($a = 0; $a < count($json[$i]->lista_sensores); $a++){
-                if($json[$i]->lista_sensores[$a]->nombre_sensor == "DIESEL"){
+                if($json[$i]->lista_sensores[$a]->nombre_sensor == "DIESEL" || $json[$i]->lista_sensores[$a]->nombre_sensor == "COMBUSTIBLE" || $json[$i]->lista_sensores[$a]->nombre_sensor == "combustible"){
 
               
             // if($json[$i]->ID == '1625513' || $json[$i]->ID == '768858' || $json[$i]->ID == '1632526'){ 
                $ultimo_registro = $registro->obtener_ultima_carga($json[$i]->ID); ?>
-	<div class="col-lg-6">
+	<div class="col-sm-4">
 		<figure class="highcharts-figure">
 			<div id="container-speed_<?php echo $json[$i]->ID ?>" class="chart-container"></div>
             <input type="hidden" name="" id="variable_combustible_<?php echo $json[$i]->ID; ?>" value="1">
@@ -139,7 +139,7 @@ $fn = new funciones();
         $json = json_decode($json);
         for($i=0;$i<$_SESSION["totaldispositivos"];$i++){ 
             for($a = 0; $a < count($json[$i]->lista_sensores); $a++){
-                if($json[$i]->lista_sensores[$a]->nombre_sensor == "DIESEL"){
+                if($json[$i]->lista_sensores[$a]->nombre_sensor == "DIESEL" || $json[$i]->lista_sensores[$a]->nombre_sensor == "COMBUSTIBLE" || $json[$i]->lista_sensores[$a]->nombre_sensor == "combustible"){
             //if($json[$i]->ID == '1625513' || $json[$i]->ID == '768858' || $json[$i]->ID == '1632526'){ ?>
 <script>
 	// window.onload = cargargrafica();
@@ -210,7 +210,7 @@ $fn = new funciones();
                 success: function (response) {
                     var ultimo_valor = document.getElementById("variable_combustible_<?php echo $json[$i]->ID ?>").value;
                     for(var a = 0; a < response.inputs.length; a++){
-                        if(response.inputs[a].label == 'DIESEL' && response.inputs[a].value != ultimo_valor){
+                        if((response.inputs[a].label == 'DIESEL' || response.inputs[a].label == 'COMBUSTIBLE' || response.inputs[a].label == 'combustible') && response.inputs[a].value != ultimo_valor){
                             var chartSpeed = Highcharts.chart('container-speed_<?php echo $json[$i]->ID ?>', Highcharts.merge(gaugeOptions, {
                                 yAxis: {
                                     min: response.inputs[a].min_value,
@@ -247,7 +247,7 @@ $fn = new funciones();
                                 if (chartSpeed) {
                                     point = chartSpeed.series[0].points[0];
                                     for(var b = 0; b < response.inputs.length; b++){
-                                        if(response.inputs[b].label == 'DIESEL'){
+                                        if(response.inputs[b].label == 'DIESEL' || response.inputs[b].label == 'COMBUSTIBLE' || response.inputs[b].label == 'combustible'){
                                             inc = Number(response.inputs[b].value);
                                             $("#variable_combustible_<?php echo $json[$i]->ID ?>").val(inc);
                                         }

@@ -71,9 +71,9 @@ $fn         = new funciones();
                                 $json = json_encode($jsonvehiculos);
                                 $json = json_decode($json);
                                 for($i=0;$i<$_SESSION["totaldispositivos"];$i++){ 
-                                    if($json[$i]->ID == '1625513' || $json[$i]->ID == '768858' || $json[$i]->ID == '1632526'){ ?>
+                                     ?>
                                 <option value="<?php echo $json[$i]->ID; ?>"><?php echo $json[$i]->nombre; ?></option>
-                            <?php }} ?>
+                            <?php } ?>
                             </select>
                         </div>
                     </div>

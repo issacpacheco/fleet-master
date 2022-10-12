@@ -34,7 +34,17 @@ if(!isset($_SESSION['vehiculos'])){
 			$sesires[] = array('sensor_id' => $respuesta_sensores->list[$a]->id, 'nombre_sensor' => $respuesta_sensores->list[$a]->name);
 		}
 
-		$vehiculos[] = array("ID" => $respuesta->list[$i]->id, "nombre" => $respuesta->list[$i]->label, "lista_sensores" => $sesires);
+		$vehiculos[] = array("ID" => $respuesta->list[$i]->id, 
+							 "nombre" => $respuesta->list[$i]->label, 
+							 "lista_sensores" => $sesires, 
+							 "reg_number" => null,
+							 "norm_avg_fuel_consumption" => null,
+							 "fuel_cost" => null,
+							 "type" => null,
+							 "max_speed" => null,
+							 "fuel_type" => null,
+							 "fuel_grade" => null,
+							 "fuel_tank_volume" => null);
 	}
 	$_SESSION['totaldispositivos'] = $contador;
 	$_SESSION['vehiculos'] = $vehiculos;
