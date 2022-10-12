@@ -174,9 +174,9 @@ for($a = 0; $a < count($respuesta_vehiculos->list); $a++){
                         if(porcentaje_final < 26){
                             $("#progress_bar_<?php echo $json[$i]->ID; ?>").css({"background-color" : "red"})
                         }else if(porcentaje_final < 51){
-                            $("#progress_bar_<?php echo $json[$i]->ID; ?>").css({"background-color" : "yellow"})
-                        }else if(porcentaje_final < 76){
                             $("#progress_bar_<?php echo $json[$i]->ID; ?>").css({"background-color" : "orange"})
+                        }else if(porcentaje_final < 76){
+                            $("#progress_bar_<?php echo $json[$i]->ID; ?>").css({"background-color" : "cornflowerblue"})
                         }else if(porcentaje_final > 75){
                             $("#progress_bar_<?php echo $json[$i]->ID; ?>").css({"background-color" : "green"})
                         }
