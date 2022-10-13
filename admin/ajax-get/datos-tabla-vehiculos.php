@@ -111,6 +111,7 @@ for($a = 0; $a < count($respuesta_vehiculos->list); $a++){
                     <th scope="col">Matricula</th>
                     <th scope="col">Ultimo reporte de GPS</th>
                     <th scope="col">Nivel de combustible</th>
+                    <th scope="col">Porcentaje del tanque</th>
                 </tr>
             </thead>
             <tbody>
@@ -127,6 +128,16 @@ for($a = 0; $a < count($respuesta_vehiculos->list); $a++){
                     <td><?php echo $json[$i]->nombre ?></td>
                     <td><?php echo $json[$i]->reg_number == null ? "sin datos" : $json[$i]->reg_number ?></td>
                     <td id="dato-gps_<?php echo $json[$i]->ID ?>"></td>
+                    <td>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <span id="nivel_gasolina_<?php echo $json[$i]->ID ?>"></span>
+                            </div>
+                            <div class="col-sm-12">
+                                <span id="ultima_actualizacion_<?php echo $json[$i]->ID ?>"></span>
+                            </div>
+                        </div>
+                    </td>
                     <td>
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" id="progress_bar_<?php echo $json[$i]->ID; ?>" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="" style=""></div>
@@ -146,7 +157,7 @@ for($a = 0; $a < count($respuesta_vehiculos->list); $a++){
             for($a = 0; $a < count($json[$i]->lista_sensores); $a++){
                 if($json[$i]->lista_sensores[$a]->nombre_sensor == "DIESEL" || $json[$i]->lista_sensores[$a]->nombre_sensor == "COMBUSTIBLE" || $json[$i]->lista_sensores[$a]->nombre_sensor == "combustible"){
 ?>
-<script>
+<!-- <script>
     setInterval(function () {
         $.ajax({
             type: "GET",
@@ -170,7 +181,10 @@ for($a = 0; $a < count($respuesta_vehiculos->list); $a++){
 
                         var porcentaje_final = Number((valor*porcentaje)/max);
 
+                        
+
                         // console.log(porcentaje);
+                        //Barras de porcentaje de tanque
                         if(porcentaje_final < 26){
                             $("#progress_bar_<?php echo $json[$i]->ID; ?>").css({"background-color" : "red"})
                         }else if(porcentaje_final < 51){
@@ -183,13 +197,21 @@ for($a = 0; $a < count($respuesta_vehiculos->list); $a++){
 
                         $("#progress_bar_<?php echo $json[$i]->ID; ?>").css({"width" : porcentaje_final.toFixed(2)+'%'})
                         $("#progress_bar_<?php echo $json[$i]->ID; ?>").text(porcentaje_final.toFixed(2)+"%");
+                        $("#nivel_gasolina_<?php echo $json[$i]->ID ?>").text(inc+"L");
+                        $("#variable_combustible_<?php echo $json[$i]->ID ?>").val(inc);
                     }
                 }
+                //Calculo de tiempo transcurrido desde la ultima actualizacion
+                var startTime = new Date(response.update_time); 
+                var endTime = new Date();
+                var difference = endTime.getTime() - startTime.getTime();
+                var resultInMinutes = Math.round(difference / 60000);
+                $("#ultima_actualizacion_<?php echo $json[$i]->ID ?>").text("Ultima actualización hace: "+resultInMinutes+" minutos");
 
             }
         });
     },5000);
-</script>
+</script> -->
 <script>
     $(document).ready(function(){
         ultimo_dato_gps();

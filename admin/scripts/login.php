@@ -17,6 +17,7 @@ $respuesta = json_decode($server_output);
 curl_close ($ch);
 
 $_SESSION['hash'] = $respuesta->hash;
+$_SESSION['usuario'] = $login;
 if($respuesta->success == 1){
     echo "1";
 }else{

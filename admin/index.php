@@ -115,8 +115,8 @@ include("ajax-get/obtener-lista.php");
 	</div>
 	<!-- End of Main content-->
 	<div class="alertas cajaAlertaRoja">
-		<span class="fas fa-exclamation-triangle iconoalertas"></span>
-		<p>
+		<span class="fas fa-exclamation-triangle iconoalertas" style="color: white;"></span>
+		<p style="color: white;">
 			Este es un mensaje de alerta para notificar a los usuarios que necesiten algo.
 		</p>
 	</div>
@@ -225,7 +225,7 @@ include("ajax-get/obtener-lista.php");
 		<script src="assets/js/lib/owl-carousel/owl.carousel-init.js"></script>
 
 		<!-- scripit init-->
-		<script src="assets/js/dashboard2.js"></script>
+		<script src="assets/js/dashboard1.js"></script>
 
 		<script src="plugins/EasyAutocomplete-1.3.5/jquery.easy-autocomplete.min.js"></script>
 
@@ -253,6 +253,80 @@ include("ajax-get/obtener-lista.php");
 			contadorInactividad();
 		}
 	</script> -->
+	<?php 
+		$jsonvehiculos = $_SESSION['vehiculos'];
+		$json = json_encode($jsonvehiculos);
+		$json = json_decode($json);
+		for($i=0;$i<$_SESSION["totaldispositivos"];$i++){ 
+			for($a = 0; $a < count($json[$i]->lista_sensores); $a++){
+				if($json[$i]->lista_sensores[$a]->nombre_sensor == "DIESEL" || $json[$i]->lista_sensores[$a]->nombre_sensor == "COMBUSTIBLE" || $json[$i]->lista_sensores[$a]->nombre_sensor == "combustible"){
+	?>
+	<div>
+		<input type="hidden" id="variable_combustible_<?php echo $json[$i]->ID ?>" value="1">
+	</div>
+	<script>
+		setInterval(function () {
+			$.ajax({
+				type: "GET",
+				url: "https://api.navixy.com/v2/tracker/get_fuel",
+				// dataType: "json",
+				data: {hash: '<?php echo $_SESSION['hash'] ?>', tracker_id: <?php echo $json[$i]->ID ?>},
+				success: function (response) {
+					var ultimo_valor = document.getElementById("variable_combustible_<?php echo $json[$i]->ID ?>").value;
+					for(var a = 0; a < response.inputs.length; a++){
+						if(response.inputs[a].label == 'DIESEL' || response.inputs[a].label == 'COMBUSTIBLE' || response.inputs[a].label == 'combustible'){
+							if(response.inputs[a].value < ultimo_valor || response.inputs[a].value > ultimo_valor){
+								inc = Number(response.inputs[a].value);
+								// console.log(Number(ultimo_valor - inc));
+								restante = Number(ultimo_valor - inc);
+								if(restante >= 5){
+									alertaRoja("El vehiculo <?php echo $json[$i]->nombre; ?> Reporte de desagüe aprox. " + restante + " Litros");
+								}
+								valoraria = document.querySelector("#progress_bar_<?php echo $json[$i]->ID; ?>");
+
+								$("#progress_bar_<?php echo $json[$i]->ID; ?>").attr("aria-valuenow", inc);
+								$("#progress_bar_<?php echo $json[$i]->ID; ?>").attr("aria-valuemin", response.inputs[a].min_value);
+								$("#progress_bar_<?php echo $json[$i]->ID; ?>").attr("aria-valuemax", response.inputs[a].max_value);
+
+								var valor = inc;
+								var porcentaje = Number(100);
+								var max = Number(response.inputs[a].max_value);
+
+								var porcentaje_final = Number((valor*porcentaje)/max);
+
+								
+
+								// console.log(porcentaje);
+								//Barras de porcentaje de tanque
+								if(porcentaje_final < 26){
+									$("#progress_bar_<?php echo $json[$i]->ID; ?>").css({"background-color" : "red"})
+								}else if(porcentaje_final < 51){
+									$("#progress_bar_<?php echo $json[$i]->ID; ?>").css({"background-color" : "orange"})
+								}else if(porcentaje_final < 76){
+									$("#progress_bar_<?php echo $json[$i]->ID; ?>").css({"background-color" : "cornflowerblue"})
+								}else if(porcentaje_final > 75){
+									$("#progress_bar_<?php echo $json[$i]->ID; ?>").css({"background-color" : "green"})
+								}
+
+								$("#progress_bar_<?php echo $json[$i]->ID; ?>").css({"width" : porcentaje_final.toFixed(2)+'%'})
+								$("#progress_bar_<?php echo $json[$i]->ID; ?>").text(porcentaje_final.toFixed(2)+"%");
+								$("#nivel_gasolina_<?php echo $json[$i]->ID ?>").text(inc+" Lts");
+								$("#variable_combustible_<?php echo $json[$i]->ID ?>").val(inc);
+							}
+						}
+					}
+					//Calculo de tiempo transcurrido desde la ultima actualizacion
+					var startTime = new Date(response.update_time); 
+					var endTime = new Date();
+					var difference = endTime.getTime() - startTime.getTime();
+					var resultInMinutes = Math.round(difference / 60000);
+					$("#ultima_actualizacion_<?php echo $json[$i]->ID ?>").text("Ultima actualización hace: "+resultInMinutes+" minutos");
+
+				}
+			});
+		},5000);
+	</script>
+	<?php }}}?>
 </body>
 
 </html>

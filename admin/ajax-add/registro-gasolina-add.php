@@ -38,7 +38,7 @@ $fn         = new funciones();
                     <div class="form-wrapper col-sm-4">
                         <label>Cantidad en litros</label>
                         <div class="form-group">
-                            <input type="text" class="form-control esprecio" name="cantidad_litros" id="cantidad_litros" placeholder="Cantidad en litro" value="">
+                            <input type="text" class="form-control esprecio" name="cantidad_litros" id="cantidad_litros" placeholder="Cantidad en litros" value="">
                         </div>
                     </div>
                     <div class="form-wrapper col-sm-4">
@@ -48,21 +48,7 @@ $fn         = new funciones();
                         </div>
                     </div>
                     <div class="form-wrapper col-sm-4">
-                        <label for="">Usuario de carga (Quien hizo la carga)</label>
-                        <div class="form-group">
-                            <input type="text" name="usuario" id="usuario" class="form-control" value="" placeholder="Usuario quien hizo el cargo de gasolina">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-wrapper col-sm-4">
-                        <label for="">Autoriza</label>
-                        <div class="form-group">
-                            <input type="text" name="autoriza" id="autoriza" value="" class="form-control" placeholder="Nombre de la persona que autorizo la carga">
-                        </div>
-                    </div>
-                    <div class="form-wrapper col-sm-4">
-                        <label for="">Vehiculo que se cargo</label>
+                        <label for="">Vehiculo receptor</label>
                         <div class="form-group">
                             <select name="id_tracker" id="id_tracker" class="form-control">
                                 <option value="0" selected>Selecciona un vehiculo</option>
@@ -75,6 +61,21 @@ $fn         = new funciones();
                                 <option value="<?php echo $json[$i]->ID; ?>"><?php echo $json[$i]->nombre; ?></option>
                             <?php } ?>
                             </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-wrapper col-sm-4">
+                        <label for="">Autoriza</label>
+                        <div class="form-group">
+                            <input type="text" name="autoriza" id="autoriza" value="" class="form-control" placeholder="Nombre de la persona que autorizo la carga">
+                        </div>
+                    </div>
+                    
+                    <div class="form-wrapper col-sm-4">
+                        <label for="">Usuario de carga (Quien hizo la carga)</label>
+                        <div class="form-group">
+                            <input type="text" name="usuario" id="usuario" class="form-control" value="" placeholder="Usuario quien hizo el cargo de gasolina">
                         </div>
                     </div>
                 </div>

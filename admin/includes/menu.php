@@ -35,12 +35,17 @@
                     <span>Datos a guardar</span>
                 </a>
                 <ul class="collapse nav primary essubmenu" id="submenuGasolina">
+                    <?php 
+                        $usuario = explode("@",$_SESSION['usuario']);
+                        if($usuario[0] == "ventas"){ 
+                    ?>
                     <li>
                         <a onclick="getPageMenu('pr-usuarios')">
                             <i class="fal fa-users white"></i>
                             <span class="white">Usuarios</span>
                         </a>
                     </li>
+                    <?php } ?>
                     <li>
                         <a onclick="getPageMenu('pr-registro-gasolina')">
                             <i class="fal fa-digital-tachograph white"></i>
@@ -58,7 +63,7 @@
             </li>
             <li>
                 <a href="" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" onclick="getPageVehiculosLis()">
-                    <i class="fal fa-cars"></i>
+                    <i class="fal fa-list"></i>
                     <span>Lista de vehiculos</span>
                 </a>
             </li>
