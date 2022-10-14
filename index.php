@@ -1,6 +1,6 @@
 <?php
 if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'off'){
-	header("Location: https://siaa.seticmid.com");
+	header("Location: https://demo-fleet.seticmid.com");
 }
 ?>
 <!DOCTYPE html>

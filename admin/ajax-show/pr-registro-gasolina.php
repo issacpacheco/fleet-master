@@ -18,15 +18,15 @@ $cregistro = $fn->cuentarray($registro);
                 <div class="col-sm-6">
                     Historial de registros
                 </div>
-                <div class="col-6 mright textright">
+                <div class="col-sm-12 mright textright">
                     <button id="idtest" onclick="universalLoad(this)" data-postload="0" data-regresar="pr-registro-gasolina" data-valores="" data-form="" data-page="registro-gasolina-add" data-carpeta="ajax-add" data-load="contenedor" data-id="" class="btngral botonVerde mright"><span class="fas fa-plus-circle font16"></span><span class="letrablanca font14">
                         <span class="letrablanca font14">Agregar</span>
                     </button> 
                 </div>
             </div>
             <div class="panel-body">
-                <div class="left full fondoblanco relative paddingtop15" id="content">
-                    <table class="display fullimportant" id="tabla">
+                <div class="left full  relative paddingtop15" id="content">
+                    <table class="display fullimportant table" id="tabla">
                         <thead>
                             <tr>
                                 <th> # </th>

@@ -2,45 +2,29 @@
 include("includes/config.php");
 include("ajax-get/obtener-lista.php");
 ?>
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
 
 <head>
-	<title>Panel de administración | SIAA</title>
-
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height">
-	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" content="images/icon/ms-icon-144x144.png">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300" rel="stylesheet" type="text/css"/>
-    
-    <!-- Styling -->
-    <link rel="stylesheet" href="addons/bootstrap/css/bootstrap.css"/>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.0/css/all.css">
-    <link rel="stylesheet" href="styles/style.css"/>
-	<link rel="stylesheet" href="styles/theme-blue.css" class="theme" />
-    <!-- End of Styling -->
-	<link rel="stylesheet" href="scripts/dropzone-5.7.0/dist/dropzone.css">
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/b-flash-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.css"/>
+  <title>Panel de administración | SIAA</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300" rel="stylesheet" type="text/css"/> -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.0/css/all.css">
+  <!-- Material Kit CSS -->
+  <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/b-flash-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.css"/>
 	<!-- DataTables CSS -->
 	<link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css" rel="stylesheet">
 	<!-- Select2 -->
 	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-	<!--vewntas --->
-	<link href="styles/animate.css" rel="stylesheet">
-    <link href="styles/np.css" rel="stylesheet">
-    <link href="styles/pnotify.css" rel="stylesheet">
-    <link href="styles/cb.css" rel="stylesheet">
-
-	<!-- JS file -->
-	
-
-	<!-- CSS file -->
-	<link rel="stylesheet" href="plugins/EasyAutocomplete-1.3.5/easy-autocomplete.min.css">
-	
-	<!----Charts---->
+  <!----Charts---->
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/highcharts-more.js"></script>
 	<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
@@ -48,212 +32,275 @@ include("ajax-get/obtener-lista.php");
 	<script src="https://code.highcharts.com/modules/export-data.js"></script>
 	<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 	<!----DatePicker JQuery---->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<!-- Daterange Picker -->
-	<link rel="stylesheet" href="plugins/bootstrap-daterangepicker/daterangepicker.css">
-	<!--ihover-->
-	<link rel="stylesheet" href="plugins/ihover/ihover.css">
-	<!-- Cropper-->
-	<link href="plugins/cropper-master/dist/cropper.min.css" rel="stylesheet">
-	<link href="css/crop_avatar.css?v=<?php echo rand();?>" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="plugins/bootstrap-fileupload/bootstrap-fileupload.css" />
-	<!-- blueimp Gallery styles -->
-	<link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
-    <link href="plugins/jQuery-File-Upload-9.12.1/css/jquery.fileupload.css" rel="stylesheet" >
-	<link href="plugins/jQuery-File-Upload-9.12.1/css/jquery.fileupload-ui.css" rel="stylesheet" >
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-	<link href="assets/css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
-    <!-- <link href="assets/css/lib/chartist/chartist.min.css" rel="stylesheet"> -->
-    <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
-    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
-    <link href="assets/css/lib/owl.carousel.min.css" rel="stylesheet" />
-    <link href="assets/css/lib/owl.theme.default.min.css" rel="stylesheet" />
-    <link href="assets/css/lib/weather-icons.css" rel="stylesheet" />
-    <!-- <link href="assets/css/lib/menubar/sidebar.css" rel="stylesheet"> -->
-    <!-- <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet"> -->
-    <link href="assets/css/lib/helper.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
-	<link rel="stylesheet" href="styles/abc.css">
-
-	<!-- ventas --->
-	<script src="lib/pnotify.js"></script>
-	<script src="lib/np.js"></script>
-	<script src="lib/jquery.js"></script>
-	<script src="js/main.js"></script>
-
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.css"/>
-	<!-- CSS adjustments for browsers with JavaScript disabled -->
-    <noscript><link href="plugins/jQuery-File-Upload-9.12.1/css/jquery.fileupload-noscript.css" rel="stylesheet" ></noscript>
-    <noscript><link href="plugins/jQuery-File-Upload-9.12.1/css/jquery.fileupload-ui-noscript.css" rel="stylesheet" ></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.css"/>
 </head>
 
-<body class="hold-transition"  onload="nobackbutton();">
-
-	<!-- Header -->
-	<?php include("includes/header.php");?>
-	<!-- End of Header -->
-
-	<!-- Navigation -->
-	<?php include("includes/menu.php");?>
-	<!-- End of Navigation -->
-
-	<!-- Scroll up button -->
-	<a class="scroll-up"><i class="fas fa-chevron-up"></i></a>
-	<!-- End of scroll up button -->
-
-	<!-- Main content-->
-	<div class="content">
-		<div class="container-fluid" id="contenedor">
-            
+<body class="dark-edition">
+  <div class="wrapper">
+    <?php include("includes/menu.php");?>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <?php include("includes/header.php") ?>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid" id="contenedor">
+          <!-- your content here -->
         </div>
-		
-		<!-- Footer -->
-		<?php include("includes/footer.php");?>
-		<!-- End of Footer -->
-	</div>
-	<!-- End of Main content-->
-	<div class="alertas cajaAlertaRoja">
-		<span class="fas fa-exclamation-triangle iconoalertas" style="color: white;"></span>
-		<p style="color: white;">
-			Este es un mensaje de alerta para notificar a los usuarios que necesiten algo.
-		</p>
-	</div>
-	<div class="alertas cajaAlertaVerde">
-		<span class="fas fa-exclamation-triangle iconoalertas"></span>
-		<p>
-			Se ha guardado con exito
-		</p>
-	</div> 
-	<div id="modal_acerca_de" class="modal fade" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Acerca de</h4>
-				</div>
-				<div class="modal-body">
-					<div class="well">
-						<h1>OkVenta
-							<small>v1.0</small>
-						</h1>
-						<br>
-						<h2>Desarrollado y mantenido por <a target="_blank" href="https://parzibyte.me/blog">Parzibyte</a></h2>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<div class="col-xs-12">
-						<button data-dismiss="modal" class="form-control btn btn-success">Cerrar</button>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="portapopups" class="oscuro oculto">
-		<div id="popup" style="z-index:1000;"></div>
-	</div>
-
-	<div class="scripts">
-		<!-- JQUERY -->
-		<script type="text/javascript" src="js/jquery.js"></script>
-        <!-- Addons -->
-        <script src="addons/jquery/jquery.min.js"></script>
-        <script src="addons/jquery-ui/jquery-ui.min.js"></script>
-        <script src="addons/bootstrap/js/bootstrap.min.js"></script>
-		<script src="addons/fullcalendar/lib/moment.min.js"></script>
-        <script src="addons/pacejs/pace.min.js"></script>
-        <!-- scripts -->
-        <script src="addons/scripts.js"></script>
-		<!-- MULTISELECTS -->
-		<script src="scripts/multiselect/jquery.multiselect.js"></script> 
-		<!-- Funciones -->
-		<script src="js/generales.js"></script>
-		<script src="js/loads.js"></script>
-		<script src="js/funciones.js"></script>
-		<!-- <script src="js/ventas.js"></script> -->
-		<!--Select2-->
-		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-		<!-- InputMask -->
-		<script src="plugins/input-mask/jquery.inputmask.js"></script>
-		<script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-		<script src="plugins/input-mask/jquery.inputmask.extensions.js"></script>
-		<!-- DataTables JS -->
-		<script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-		<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-		<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>    
-		<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.print.min.js"></script>
-		<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/b-flash-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.js"></script>
-		<!-- The template to display files available for upload -->
-		<script src="plugins/jQuery-File-Upload-9.12.1/js/vendor/jquery.ui.widget.js"></script>
-		<script src="//blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
-		<script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
-		<script src="//blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
-		<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
-		<script src="plugins/jQuery-File-Upload-9.12.1/js/jquery.iframe-transport.js"></script>
-		<script src="plugins/jQuery-File-Upload-9.12.1/js/jquery.fileupload.js"></script>
-		<script src="plugins/jQuery-File-Upload-9.12.1/js/jquery.fileupload-process.js"></script>
-		<script src="plugins/jQuery-File-Upload-9.12.1/js/jquery.fileupload-image.js"></script>
-		<script src="plugins/jQuery-File-Upload-9.12.1/js/jquery.fileupload-audio.js"></script>
-		<script src="plugins/jQuery-File-Upload-9.12.1/js/jquery.fileupload-video.js"></script>
-		<script src="plugins/jQuery-File-Upload-9.12.1/js/jquery.fileupload-validate.js"></script>
-		<!-- CALENDARIO -->
-		<link href='scripts/calendario/lib/main.css' rel='stylesheet' />
-		<script src='scripts/calendario/lib/main.js'></script>
-		<script src='scripts/calendario/lib/locales/es.js'></script>
-
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.js"></script>
-		
-		<!-- GRAFICAS -->
-		<script src="scripts/dropzone-5.7.0/dist/dropzone.js"></script>
-		<script src="assets/js/lib/calendar-2/moment.latest.min.js"></script>
-		<script src="assets/js/lib/calendar-2/pignose.calendar.min.js"></script>
-		<script src="assets/js/lib/calendar-2/pignose.init.js"></script>
-
-
-		<script src="assets/js/lib/weather/jquery.simpleWeather.min.js"></script>
-		<script src="assets/js/lib/weather/weather-init.js"></script>
-		<script src="assets/js/lib/circle-progress/circle-progress.min.js"></script>
-		<script src="assets/js/lib/circle-progress/circle-progress-init.js"></script>
-		<script src="assets/js/lib/owl-carousel/owl.carousel.min.js"></script>
-		<script src="assets/js/lib/owl-carousel/owl.carousel-init.js"></script>
-
-		<!-- scripit init-->
-		<script src="assets/js/dashboard1.js"></script>
-
-		<script src="plugins/EasyAutocomplete-1.3.5/jquery.easy-autocomplete.min.js"></script>
-
-		<!-- Current page scripts -->
-        <div class="current-scripts">
-
-        </div>
-
+        <?php include("includes/footer.php");?>
+      </div>
+      <div class="alertas cajaAlertaRoja">
+        <span class="fas fa-exclamation-triangle iconoalertas" style="color: white;"></span>
+        <p style="color: white;">
+          Este es un mensaje de alerta para notificar a los usuarios que necesiten algo.
+        </p>
+      </div>
+      <div class="alertas cajaAlertaVerde">
+        <span class="fas fa-exclamation-triangle iconoalertas"></span>
+        <p>
+          Se ha guardado con exito
+        </p>
+      </div>
     </div>
-	<!-- <script type="text/javascript">
-		function e(q) {
-			document.body.appendChild( document.createTextNode(q) );
-			document.body.appendChild( document.createElement("BR") );
-		}
-		function inactividad() {
-			// e("Inactivo!!");
-			window.location.href = "../logout.php";
-		}
-		var t=null;
-		function contadorInactividad() {
-			t=setTimeout("inactividad()",600000);
-		}
-		window.onblur=window.onmousemove=function() {
-			if(t) clearTimeout(t);
-			contadorInactividad();
-		}
-	</script> -->
-	<?php 
+  </div>
+  <!--   Core JS Files   -->
+  <script src="./assets/js/core/jquery.min.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="./assets/js/core/bootstrap-material-design.min.js"></script>
+  <script src="https://unpkg.com/default-passive-events"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chartist JS -->
+  <script src="./assets/js/plugins/chartist.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="./assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="./assets/js/material-dashboard.js?v=2.1.0"></script>
+  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+  <script src="./assets/demo/demo.js"></script>
+  <!-- <script type="text/javascript" src="js/jquery.js"></script> -->
+        <!-- Addons -->
+  <!-- <script src="addons/jquery/jquery.min.js"></script> -->
+  <script src="addons/jquery-ui/jquery-ui.min.js"></script>
+  <script src="addons/bootstrap/js/bootstrap.min.js"></script>
+  <script src="addons/fullcalendar/lib/moment.min.js"></script>
+  <script src="addons/pacejs/pace.min.js"></script>
+      <!-- scripts -->
+  <script src="addons/scripts.js"></script>
+  <!-- MULTISELECTS -->
+  <script src="scripts/multiselect/jquery.multiselect.js"></script> 
+  <!-- Funciones -->
+  <script src="js/generales.js"></script>
+  <script src="js/loads.js"></script>
+  <script src="js/funciones.js"></script>
+  <!-- <script src="js/ventas.js"></script> -->
+  <!--Select2-->
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <!-- InputMask -->
+  <script src="plugins/input-mask/jquery.inputmask.js"></script>
+  <script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+  <script src="plugins/input-mask/jquery.inputmask.extensions.js"></script>
+  <!-- DataTables JS -->
+  <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>    
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.print.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/b-flash-1.5.1/b-html5-1.5.1/b-print-1.5.1/cr-1.4.1/fc-3.2.4/fh-3.1.3/kt-2.3.2/r-2.2.1/rg-1.0.2/rr-1.2.3/sc-1.4.4/sl-1.2.5/datatables.min.js"></script>
+  <!-- The template to display files available for upload -->
+  <script src="plugins/jQuery-File-Upload-9.12.1/js/vendor/jquery.ui.widget.js"></script>
+  <script src="//blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
+  <script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+  <script src="//blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+  <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+  <script src="plugins/jQuery-File-Upload-9.12.1/js/jquery.iframe-transport.js"></script>
+  <script src="plugins/jQuery-File-Upload-9.12.1/js/jquery.fileupload.js"></script>
+  <script src="plugins/jQuery-File-Upload-9.12.1/js/jquery.fileupload-process.js"></script>
+  <script src="plugins/jQuery-File-Upload-9.12.1/js/jquery.fileupload-image.js"></script>
+  <script src="plugins/jQuery-File-Upload-9.12.1/js/jquery.fileupload-audio.js"></script>
+  <script src="plugins/jQuery-File-Upload-9.12.1/js/jquery.fileupload-video.js"></script>
+  <script src="plugins/jQuery-File-Upload-9.12.1/js/jquery.fileupload-validate.js"></script>
+  <!-- CALENDARIO -->
+  <link href='scripts/calendario/lib/main.css' rel='stylesheet' />
+  <script src='scripts/calendario/lib/main.js'></script>
+  <script src='scripts/calendario/lib/locales/es.js'></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.js"></script>
+
+  <!-- GRAFICAS -->
+  <script src="scripts/dropzone-5.7.0/dist/dropzone.js"></script>
+  <script>
+    $(document).ready(function() {
+      $().ready(function() {
+        $sidebar = $('.sidebar');
+
+        $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+
+        window_width = $(window).width();
+
+        $('.fixed-plugin a').click(function(event) {
+          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .active-color span').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-color', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .background-color .badge').click(function() {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('background-color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-background-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .img-holder').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).parent('li').siblings().removeClass('active');
+          $(this).parent('li').addClass('active');
+
+
+          var new_image = $(this).find("img").attr('src');
+
+          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            $sidebar_img_container.fadeOut('fast', function() {
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $sidebar_img_container.fadeIn('fast');
+            });
+          }
+
+          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $full_page_background.fadeOut('fast', function() {
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+              $full_page_background.fadeIn('fast');
+            });
+          }
+
+          if ($('.switch-sidebar-image input:checked').length == 0) {
+            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+          }
+        });
+
+        $('.switch-sidebar-image input').change(function() {
+          $full_page_background = $('.full-page-background');
+
+          $input = $(this);
+
+          if ($input.is(':checked')) {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar_img_container.fadeIn('fast');
+              $sidebar.attr('data-image', '#');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page_background.fadeIn('fast');
+              $full_page.attr('data-image', '#');
+            }
+
+            background_image = true;
+          } else {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar.removeAttr('data-image');
+              $sidebar_img_container.fadeOut('fast');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page.removeAttr('data-image', '#');
+              $full_page_background.fadeOut('fast');
+            }
+
+            background_image = false;
+          }
+        });
+
+        $('.switch-sidebar-mini input').change(function() {
+          $body = $('body');
+
+          $input = $(this);
+
+          if (md.misc.sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            md.misc.sidebar_mini_active = false;
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+          } else {
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+            setTimeout(function() {
+              $('body').addClass('sidebar-mini');
+
+              md.misc.sidebar_mini_active = true;
+            }, 300);
+          }
+
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function() {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+
+        });
+      });
+    });
+  </script>
+  <?php 
 		$jsonvehiculos = $_SESSION['vehiculos'];
 		$json = json_encode($jsonvehiculos);
 		$json = json_decode($json);

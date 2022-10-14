@@ -1,49 +1,36 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div id="navbar" class="navbar-collapse">
-            <ul class="breadcrumb">
-                <div class="btn-group dropright">
-                    <!-- <button type="button" class="btn dropdown-toggle colorboton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <p><i class="fas fa-cog"></i> Cambio de color</p>
-                    </button>
-                    <div class="dropdown-menu colorboton">
-                        <ul>
-                            <li><a href="index.php?color=theme-dark.css">Oscuro</a></li>
-                            <li><a href="index.php?color=theme-green.css">Verde</a></li>
-                            <li><a href="index.php?color=theme-red.css">Rojo</a></li>
-                            <li><a href="index.php?color=theme-purple.css">Purpura</a></li>
-                            <li><a href="index.php?color=theme-blue.css">Azul</a></li>
-                            <li><a href="index.php?color=theme-orange.css">Naranja</a></li>
-                            <li><a href="index.php?color=theme-white-dark.css">Oscuro y blanco</a></li>
-                        </ul>
-                    </div> -->
-                </div>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="white">
-                    <a href="#">
-                        <i class="fas fa-warehouse headernav"></i>  
-                    </a>
-                </li>
-                <li>
-                    <a href="../logout">
-                        Salir <i class="fa fa-sign-out headernav"></i> 
-                    </a>
-                </li>
-                <li class="profile">
-                    <a onclick="universalLoad(this)" data-postload="0" data-returnpage="pr-inicio" data-form="" data-page="perfil" data-carpeta="ajax-edit" data-load="contenedor" data-valores="" data-id="<?php echo $_SESSION['id_admin']; ?>">
-                        <?php
-                           
-                            $img = 'images/avatar.png';
-                            
-                        ?>
-                        <img alt="" src="<?php echo $img; ?>" class="img-circle">
-                        <div class="vcentered">
-                            <p class="profile-name"></p>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
+<style>
+  .navbar-transparent{
+    /* background: linear-gradient(to bottom, rgb(41 115 122 / 32%) 5%, rgb(26 32 53) 100%); */
+    background: linear-gradient(to bottom, rgb(42 45 63) 5%, rgb(26 32 53) 100%);
+  }
+</style>
+<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top" id="navigation-example">
+  <div class="container-fluid">
+    <div class="navbar-wrapper">
+      <a class="navbar-brand" href="javascript:void(0)">Panel</a>
     </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">
+            <i class="fas fa-warehouse headernav"></i>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="../logout">
+            <i class="fa fa-sign-out headernav"></i>
+            <p class="d-lg-none d-md-block">
+              Salir
+            </p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>

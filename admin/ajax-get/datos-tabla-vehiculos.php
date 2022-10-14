@@ -157,61 +157,6 @@ for($a = 0; $a < count($respuesta_vehiculos->list); $a++){
             for($a = 0; $a < count($json[$i]->lista_sensores); $a++){
                 if($json[$i]->lista_sensores[$a]->nombre_sensor == "DIESEL" || $json[$i]->lista_sensores[$a]->nombre_sensor == "COMBUSTIBLE" || $json[$i]->lista_sensores[$a]->nombre_sensor == "combustible"){
 ?>
-<!-- <script>
-    setInterval(function () {
-        $.ajax({
-            type: "GET",
-            url: "https://api.navixy.com/v2/tracker/get_fuel",
-            // dataType: "json",
-            data: {hash: '<?php echo $_SESSION['hash'] ?>', tracker_id: <?php echo $json[$i]->ID ?>},
-            success: function (response) {
-                var ultimo_valor = document.getElementById("variable_combustible_<?php echo $json[$i]->ID ?>").value;
-                for(var a = 0; a < response.inputs.length; a++){
-                    if((response.inputs[a].label == 'DIESEL' || response.inputs[a].label == 'COMBUSTIBLE' || response.inputs[a].label == 'combustible') && response.inputs[a].value != ultimo_valor){
-                        inc = Number(response.inputs[a].value);
-                        valoraria = document.querySelector("#progress_bar_<?php echo $json[$i]->ID; ?>");
-
-                        $("#progress_bar_<?php echo $json[$i]->ID; ?>").attr("aria-valuenow", inc);
-                        $("#progress_bar_<?php echo $json[$i]->ID; ?>").attr("aria-valuemin", response.inputs[a].min_value);
-                        $("#progress_bar_<?php echo $json[$i]->ID; ?>").attr("aria-valuemax", response.inputs[a].max_value);
-
-                        var valor = inc;
-                        var porcentaje = Number(100);
-                        var max = Number(response.inputs[a].max_value);
-
-                        var porcentaje_final = Number((valor*porcentaje)/max);
-
-                        
-
-                        // console.log(porcentaje);
-                        //Barras de porcentaje de tanque
-                        if(porcentaje_final < 26){
-                            $("#progress_bar_<?php echo $json[$i]->ID; ?>").css({"background-color" : "red"})
-                        }else if(porcentaje_final < 51){
-                            $("#progress_bar_<?php echo $json[$i]->ID; ?>").css({"background-color" : "orange"})
-                        }else if(porcentaje_final < 76){
-                            $("#progress_bar_<?php echo $json[$i]->ID; ?>").css({"background-color" : "cornflowerblue"})
-                        }else if(porcentaje_final > 75){
-                            $("#progress_bar_<?php echo $json[$i]->ID; ?>").css({"background-color" : "green"})
-                        }
-
-                        $("#progress_bar_<?php echo $json[$i]->ID; ?>").css({"width" : porcentaje_final.toFixed(2)+'%'})
-                        $("#progress_bar_<?php echo $json[$i]->ID; ?>").text(porcentaje_final.toFixed(2)+"%");
-                        $("#nivel_gasolina_<?php echo $json[$i]->ID ?>").text(inc+"L");
-                        $("#variable_combustible_<?php echo $json[$i]->ID ?>").val(inc);
-                    }
-                }
-                //Calculo de tiempo transcurrido desde la ultima actualizacion
-                var startTime = new Date(response.update_time); 
-                var endTime = new Date();
-                var difference = endTime.getTime() - startTime.getTime();
-                var resultInMinutes = Math.round(difference / 60000);
-                $("#ultima_actualizacion_<?php echo $json[$i]->ID ?>").text("Ultima actualización hace: "+resultInMinutes+" minutos");
-
-            }
-        });
-    },5000);
-</script> -->
 <script>
     $(document).ready(function(){
         ultimo_dato_gps();

@@ -6,7 +6,9 @@ use nsfunciones\funciones;
 $usuarios   = new usuarios();
 $fn         = new funciones();
 ?>
-
+<style>.dark-edition .form-control {
+    /* color: #fff0; */
+}</style>
 <div class="col-sm-12">
     <div class="panel">
         <div class="panel-heading">
