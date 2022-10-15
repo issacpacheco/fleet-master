@@ -954,9 +954,15 @@ mark,
 }
 
 .cajaAlertaRoja{
-  background-color: #dd4b39 !important;
+  /* background-color: #dd4b39 !important;
   color: #fff !important;
-  border-left: 5px solid #C64333;
+  border-left: 5px solid #C64333; */
+  background: linear-gradient(60deg, #ff00008c, #1d2337);
+  background-color: unset;
+  box-shadow: 0 4px 20px 0px rgb(0 0 0), 0 7px 10px -5px rgb(0 0 0);
+  border-color: #37688d;
+  border-left: 15px solid #ffffff;
+    
 }
 
 .cajaAlertaVerde{
@@ -966,21 +972,21 @@ mark,
 }
 .alertas{
   border-radius: 3px;
-  margin: 0 0 20px 0;
-  padding: 7px 5px 15px 35px;
+  margin: 0 0 10px 0;
+  padding: 20px 0px 0px 50px;
   position: fixed;
   bottom: 0;
-  right: -350px;
-  height: 50px;
+  right: -500px;
+  height: 100px;
   z-index: 9999;
-  width: 320px;
-  max-width: 100%;  
+  width: 500px;
+  max-width: 100%;
   display: none;
 }
 .cajaAlertaRoja .iconoalertas{
   position: absolute;
   left: 5px;
-  color: #C64333;
+  color: #ba4141;
   font-size: 20px;   
 }
 .cajaAlertaVerde .iconoalertas{
@@ -1140,6 +1146,30 @@ mark,
 #login-panel .panel-heading h5 {
   margin: 4px 0;
   opacity: 0.8;
+}
+
+.btnRegresar{
+  background-color: #00a65a;
+  border-color: #008d4c;
+  color: #fff;
+  min-width: 124px;
+}
+.btnRegresar:hover{
+  background: #009551;
+}
+.btnRegresar:hover > span.fas{
+  color: #00a65a;
+}
+.btnCancelar{
+  background: #DD4B39;
+  color: #fff;
+  min-width: 124px;
+}
+.btnCancelar:hover{
+  background: #C64333;
+}
+.btnCancelar:hover > span.fas{
+  color: #DD4B39;
 }
 
 /* fin de nuevos valores */

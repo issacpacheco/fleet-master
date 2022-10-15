@@ -52,7 +52,7 @@ $fn         = new funciones();
                     <div class="form-wrapper col-sm-4">
                         <label for="">Vehiculo receptor</label>
                         <div class="form-group">
-                            <select name="id_tracker" id="id_tracker" class="form-control">
+                            <select name="id_tracker" id="id_tracker" class="form-control" style="background-color: #1a2035;">
                                 <option value="0" selected>Selecciona un vehiculo</option>
                             <?php 
                                 $jsonvehiculos = $_SESSION['vehiculos'];

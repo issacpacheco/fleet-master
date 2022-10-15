@@ -148,15 +148,16 @@ function validacionID(id, clase) {
 hacer = 0;
 function alertaRoja(mensaje) {
     if (hacer == 0) {
+        notificacion_peligro(1);
         $(".cajaAlertaRoja p").html(mensaje);
         $(".cajaAlertaRoja").show();
         $(".cajaAlertaRoja").animate({
             right: "0px"
-        }, 200, function () {
+        }, 300, function () {
             hacer = 1;
             setTimeout(function () {
                 escondeAlertas();
-            }, 3000);
+            }, 30000);
         });
     }
 }
@@ -185,7 +186,44 @@ function nuevoRegistro(){
     })
 }
 
+function notificacion_peligro(action){
+    const cargarSonido = function (fuente) {
+        const sonido = document.createElement("audio");
+        sonido.src = fuente;
+        sonido.setAttribute("preload", "auto");
+        sonido.setAttribute("controls", "none");
+        sonido.style.display = "none"; // <-- oculto
+        document.body.appendChild(sonido);
+        return sonido;
+    };
+    const $botonReproducir = document.querySelector("#btnReproducir"),
+        $botonPausar = document.querySelector("#btnPausar"),
+        $botonReiniciar = document.querySelector("#btnReiniciar");
+    // El sonido que podemos reproducir o pausar
+    const sonido = cargarSonido("plugins/notificaciones-audio/warning.mp3");
+    if(action == 1){
+        intervalosonido = setInterval(function(){
+            sonido.play();
+        },1000);
+    }else if(action == 0){
+        sonido.pause();
+        clearInterval(intervalosonido);
+    }
+    
+    
+    // $botonReproducir.onclick = () => {
+    //     sonido.play();
+    // };
+    // $botonPausar.onclick = () => {
+    //     sonido.pause();
+    // };
+    // $botonReiniciar.onclick = () => {
+    //     sonido.currentTime = 0;
+    // };
+}
+
 function escondeAlertas() {
+    notificacion_peligro(0);
     $(".alertas:visible").animate({
         right: "-350px"
     }, 200, function () {

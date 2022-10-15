@@ -48,11 +48,12 @@ include("ajax-get/obtener-lista.php");
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid" id="contenedor">
-          <!-- your content here -->
+          <?php include("ajax-show/panel.php") ?>
         </div>
-        <?php include("includes/footer.php");?>
+        
       </div>
-      <div class="alertas cajaAlertaRoja">
+      <?php include("includes/footer.php");?>
+      <div class="alertas cajaAlertaRoja" role="alert">
         <span class="fas fa-exclamation-triangle iconoalertas" style="color: white;"></span>
         <p style="color: white;">
           Este es un mensaje de alerta para notificar a los usuarios que necesiten algo.
@@ -327,7 +328,15 @@ include("ajax-get/obtener-lista.php");
 								// console.log(Number(ultimo_valor - inc));
 								restante = Number(ultimo_valor - inc);
 								if(restante >= 5){
-									alertaRoja("El vehiculo <?php echo $json[$i]->nombre; ?> Reporte de desagüe aprox. " + restante + " Litros");
+									alertaRoja("El vehiculo <?php echo $json[$i]->nombre; ?> Reporte de desagüe aprox. " + restante.toFixed(2) + " Litros");
+                  $.ajax({
+                    type: "POST",
+                    url: "ajax-save/registro-desague.php",
+                    data: {id_tracker: <?php echo $json[$i]->ID ?>, cantidad: restante.toFixed(2)},
+                    success: function(response){
+                      // alertaVerde("Se registra desagüe del vehiculo: <?php echo $json[$i]->nombre; ?>");
+                    }
+                  });
 								}
 								valoraria = document.querySelector("#progress_bar_<?php echo $json[$i]->ID; ?>");
 

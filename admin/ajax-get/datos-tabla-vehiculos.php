@@ -116,9 +116,9 @@ for($a = 0; $a < count($respuesta_vehiculos->list); $a++){
             </thead>
             <tbody>
             <?php 
-                $jsonvehiculos = $_SESSION['vehiculos'];
-                $json = json_encode($jsonvehiculos);
-                $json = json_decode($json);
+                // $jsonvehiculos = $_SESSION['vehiculos'];
+                // $json = json_encode($jsonvehiculos);
+                // $json = json_decode($json);
                 for($i=0;$i<$_SESSION["totaldispositivos"];$i++){
                     for($a = 0; $a < count($json[$i]->lista_sensores); $a++){
                         if($json[$i]->lista_sensores[$a]->nombre_sensor == "DIESEL" || $json[$i]->lista_sensores[$a]->nombre_sensor == "COMBUSTIBLE" || $json[$i]->lista_sensores[$a]->nombre_sensor == "combustible"){
@@ -159,11 +159,11 @@ for($a = 0; $a < count($respuesta_vehiculos->list); $a++){
 ?>
 <script>
     $(document).ready(function(){
-        ultimo_dato_gps();
+        ultimo_dato_gps<?php echo $json[$i]->ID ?>();
     })
-    function ultimo_dato_gps(){
-        var dato_gps = document.getElementById("dato-gps_<?php echo $json[$i]->ID ?>").textContent;
-        if(dato_gps == ""){
+    function ultimo_dato_gps<?php echo $json[$i]->ID ?>(){
+        // var dato_gps = document.getElementById("dato-gps_<?php echo $json[$i]->ID ?>").textContent;
+        // if(dato_gps == ""){
             $.ajax({
                 type: "POST",
                 url: "ajax-get/obtener-ultimo-reporte-gps.php",
@@ -183,11 +183,11 @@ for($a = 0; $a < count($respuesta_vehiculos->list); $a++){
                     }
                 }
             })
-        }else{
-            setInterval({
+        // }else{
+        //     setInterval({
 
-            }, 300000)
-        }
+        //     }, 300000)
+        // }
     }
     
 </script>
