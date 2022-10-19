@@ -48,11 +48,11 @@ include("ajax-get/obtener-lista.php");
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid" id="contenedor">
-          <?php include("ajax-show/panel.php") ?>
+          <?php include("ajax-show/panel.php"); ?>
         </div>
         
       </div>
-      <?php include("includes/footer.php");?>
+      <?php include("includes/footer.php"); ?>
       <div class="alertas cajaAlertaRoja" role="alert">
         <span class="fas fa-exclamation-triangle iconoalertas" style="color: white;"></span>
         <p style="color: white;">
