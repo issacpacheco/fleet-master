@@ -11,6 +11,14 @@ $registro = $info->obtener_registros_gasolina();
 $cregistro = $fn->cuentarray($registro);
 
 ?>
+<style>
+    .backgruoun-table{
+        background-color: #1a2035 !important;
+    }
+    .border-table{
+        background-color: #fff !important;
+    }
+</style>
 <div class="row">
     <div class="col-sm-12">
         <div class="panel">
@@ -36,10 +44,10 @@ $cregistro = $fn->cuentarray($registro);
                                 <th> Importe </th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="boder-table">
                         <?php for($i = 0,$a=0; $i < $cregistro; $i++){ $a = $a+1;?>
-                            <tr onclick="universalLoad(this)" data-postload="0" data-returnpage="pr-registro-gasolina" data-form="" data-page="registro-gasolina-edit" data-carpeta="ajax-edit" data-load="contenedor" data-valores="" data-id="<?php echo $registro["id"][$i]; ?>">
-                                <td><?php echo $a; ?></td>
+                            <tr onclick="universalLoad(this)" class="backgruoun-table" data-postload="0" data-returnpage="pr-registro-gasolina" data-form="" data-page="registro-gasolina-edit" data-carpeta="ajax-edit" data-load="contenedor" data-valores="" data-id="<?php echo $registro["id"][$i]; ?>">
+                                <td class="backgruoun-table"><?php echo $a; ?></td>
                                 <td><?php echo $registro['empresa'][$i]; ?></td>
                                 <td><?php echo $registro['fch_carga'][$i]; ?></td>
                                 <td><?php echo $registro['cantidad_litros'][$i]; ?></td>

@@ -14,7 +14,7 @@ class registros extends mysqlconsultas{
         return $res;
     }
     public function obtener_grafica_desague(){
-        $qry = "SELECT d.id, SUM(d.registro) AS total, d.id_tracker, d.fch_registro FROM notificaciones_desague d GROUP BY d.id_tracker,d.fch_registro";
+        $qry = "SELECT d.id, SUM(d.registro) AS total, d.id_tracker, d.fch_registro FROM notificaciones_desague d GROUP BY d.id_tracker,d.fch_registro ORDER BY d.fch_registro";
         $res = $this->consulta($qry);
         return $res;
     }
