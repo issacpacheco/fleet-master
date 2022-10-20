@@ -7,8 +7,10 @@ use nsregistros\registros;
 $registro = new registros();
 $fn = new funciones();
 
-$graf = $registro->obtener_grafica_desague();
-$cgraf = $fn->cuentarray($graf);
+// $graf = $registro->obtener_grafica_desague();
+// $cgraf = $fn->cuentarray($graf);
+$lista = $registro->obtener_lista_desague();
+$clista = $fn->cuentarray($lista);
 $desa = $registro->obtener_categorias_desague();
 $cdesa = $fn->cuentarray($desa);
 ?>
@@ -194,37 +196,43 @@ $cdesa = $fn->cuentarray($desa);
             $json = json_encode($jsonvehiculos);
             $json = json_decode($json);
 
-            for($i=0;$i<$_SESSION["totaldispositivos"];$i++){
+            // for($i=0;$i<$_SESSION["totaldispositivos"];$i++){
 
-                $html = "{name:'".$json[$i]->nombre."',data:[";
+            //     $html = "{name:'".$json[$i]->nombre."',data:[";
 
-                for($e=0;$e<$cdesa;$e++){
+            //     for($e = 0;$e < $cdesa;$e++){
+            //         $graf = $registro->obtener_grafica_desague($json[$i]->ID,$desa['fch_registro'][$e]);
+            //         if(isset($graf['fch_registro'][0])){
+            //             $html .= $graf['total'][0].",";
+            //         }else{
+            //             $html .= "0,";
+            //         }
+            //     }
 
-                    for($a = 0; $a < $cgraf; $a++){
-                        if($desa['fch_registro'][$e] == $graf['fch_registro'][$a]){
+            //     echo $html .= "]},";
 
-                            if($json[$i]->ID == $graf['id_tracker'][$a]){
-
-                                // if($desa['fch_registro'][$e] == $graf['fch_registro'][$a]){
-    
-                                    $html .= $graf['total'][$a].",";
-    
-                                // }else{
-                                    
-                                //         $html .= "0,";
-                                    
-                                // }
-    
-                            }else{
-                                // $html .= "0,";
+            // }
+            for($l = 0; $l < $clista; $l++){
+                for($i=0;$i<$_SESSION["totaldispositivos"];$i++){
+                    if($lista['id_tracker'][$l] == $json[$i]->ID){
+                        $html = "{name:'".$json[$i]->nombre."',data:[";
+                    
+                            for($e = 0;$e < $cdesa;$e++){
+                                $graf = $registro->obtener_grafica_desague($json[$i]->ID,$desa['fch_registro'][$e]);
+                                if(isset($graf['fch_registro'][0])){
+                                    $html .= $graf['total'][0].",";
+                                }else{
+                                    $html .= "0,";
+                                }
                             }
-                        }
-
+                        
+                            // $valores[] = $html .= "]},";
                     }
+            
+                    
+                
                 }
-
                 echo $html .= "]},";
-
             }
             ?>
         ],

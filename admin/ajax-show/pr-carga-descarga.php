@@ -7,7 +7,7 @@ use nsfunciones\funciones;
 $info   = new registros();
 $fn     = new funciones();
 
-$registro = $info->obtener_registros_gasolina();
+$registro = $info->obtener_carga_descarga();
 $cregistro = $fn->cuentarray($registro);
 
 ?>
@@ -27,7 +27,7 @@ $cregistro = $fn->cuentarray($registro);
                     Historial de registros
                 </div>
                 <div class="col-sm-12 mright textright">
-                    <button id="idtest" onclick="universalLoad(this)" data-postload="0" data-regresar="pr-registro-gasolina" data-valores="" data-form="" data-page="registro-gasolina-add" data-carpeta="ajax-add" data-load="contenedor" data-id="" class="btngral botonVerde mright"><span class="fas fa-plus-circle font16"></span><span class="letrablanca font14">
+                    <button id="idtest" onclick="universalLoad(this)" data-postload="0" data-regresar="pr-carga-descarga" data-valores="" data-form="" data-page="registro-carga-descarga" data-carpeta="ajax-add" data-load="contenedor" data-id="" class="btngral botonVerde mright"><span class="fas fa-plus-circle font16"></span><span class="letrablanca font14">
                         <span class="letrablanca font14">Agregar</span>
                     </button> 
                 </div>
@@ -46,12 +46,12 @@ $cregistro = $fn->cuentarray($registro);
                         </thead>
                         <tbody class="boder-table">
                         <?php for($i = 0,$a=0; $i < $cregistro; $i++){ $a = $a+1;?>
-                            <tr onclick="universalLoad(this)" class="backgruoun-table" data-postload="0" data-returnpage="pr-registro-gasolina" data-form="" data-page="registro-gasolina-edit" data-carpeta="ajax-edit" data-load="contenedor" data-valores="" data-id="<?php echo $registro["id"][$i]; ?>">
+                            <tr onclick="universalLoad(this)" class="backgruoun-table" data-postload="0" data-returnpage="pr-carga-descarga" data-form="" data-page="registro-gasolina-edit" data-carpeta="ajax-edit" data-load="contenedor" data-valores="" data-id="<?php echo $registro["id"][$i]; ?>">
                                 <td class="backgruoun-table"><?php echo $a; ?></td>
-                                <td><?php echo $registro['empresa'][$i]; ?></td>
-                                <td><?php echo $registro['fch_carga'][$i]; ?></td>
-                                <td><?php echo $registro['cantidad_litros'][$i]; ?></td>
-                                <td><?php echo $registro['importe'][$i]; ?></td>
+                                <td><?php echo $registro['id_tracker_descarga'][$i]; ?></td>
+                                <td><?php echo $registro['id_tracker_carga'][$i]; ?></td>
+                                <td><?php echo $registro['cantidad'][$i]; ?></td>
+                                <td><?php echo $registro['fch_despacho'][$i]; ?></td>
                             </tr>
                         <?php } ?>    
                         </tbody>    
