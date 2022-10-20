@@ -3,13 +3,13 @@
 		margin-top: 2px;
 	}
     .essubmenu{
-        width: 300px;
+        /* width: 300px; */
         /* color: rgba(255,255,255,1); */
         font-weight: 600;
-        font-size: 13.5px;
+        font-size: 0px;
         line-height: 25px;
-        padding: 11px 15px 12px 15px;
-        margin: 6px 0 0 60px;
+        /* padding: 11px 15px 12px 15px; */
+        margin: 1px 0 0 15px;
     }
     .white{
         color: #fff;
@@ -50,6 +50,12 @@
                         <a onclick="getPageMenu('pr-registro-gasolina')" style="margin-left: -10px;">
                             <i class="fal fa-digital-tachograph white"></i>
                             <span class="">Registro gasolina</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="getPageMenu('pr-carga-descarga')" style="margin-left: -10px;">
+                            <i class="fal fa-digital-tachograph white"></i>
+                            <span>Registro de carga y descarga</span>
                         </a>
                     </li>
                 </ul>
