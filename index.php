@@ -6,25 +6,17 @@ if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'off'){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>FLEET MASTER | FUEL CONTROL </title>
+	<title>FLEET MASTER | CONTROL DE COMBUSTIBLE </title>
 
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <link rel="apple-touch-icon" sizes="57x57" href="admin/images/icon/apple-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="admin/images/icon/apple-icon-60x60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="admin/images/icon/apple-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="admin/images/icon/apple-icon-76x76.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="admin/images/icon/apple-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="admin/images/icon/apple-icon-120x120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="admin/images/icon/apple-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="admin/images/icon/apple-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="admin/images/icon/apple-icon-180x180.png">
-	<link rel="icon" type="imageimages/icon/png" sizes="192x192"  href="admin/images/icon/android-icon-192x192.png">
-	<link rel="icon" type="imageimages/icon/png" sizes="32x32" href="admin/images/icon/favicon-32x32.png">
-	<link rel="icon" type="imageimages/icon/png" sizes="96x96" href="admin/images/icon/favicon-96x96.png">
-	<link rel="icon" type="imageimages/icon/png" sizes="16x16" href="admin/images/icon/favicon-16x16.png">
-	<link rel="manifest" href="admin/images/icon/manifest.json"> -->
+	<!-- Fav and touch icons -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="admin/images/nopng.jpeg" width="5px" height="5px">
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="images/icon/ms-icon-144x144.png">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300" rel="stylesheet" type="text/css"/>
