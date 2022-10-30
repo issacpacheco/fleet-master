@@ -985,9 +985,9 @@ mark,
 }
 .cajaAlertaRoja .iconoalertas{
   position: absolute;
-  left: 5px;
+  left: 15px;
   color: #ba4141;
-  font-size: 20px;   
+  font-size: 20px;  
 }
 .cajaAlertaVerde .iconoalertas{
   position: absolute;

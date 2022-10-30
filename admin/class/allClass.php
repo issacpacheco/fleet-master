@@ -1,5 +1,6 @@
 <?php
 session_start();
+ini_set('max_execution_time', 300);
 header('Content-Type: text/html; charset=utf-8');
 date_default_timezone_set('America/Merida');
 setlocale(LC_TIME, 'es_MX.UTF-8');

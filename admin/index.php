@@ -54,7 +54,8 @@ include("ajax-get/obtener-lista.php");
       </div>
       <?php include("includes/footer.php"); ?>
       <div class="alertas cajaAlertaRoja" role="alert">
-        <span class="fas fa-exclamation-triangle iconoalertas" style="color: white;"></span>
+        <span class="fas fa-plus iconoalertas" title="Cerrar alerta" style="color: white; transform: rotate(45deg);" onclick="escondeAlertas();"></span>
+        <span class="fas fa-exclamation-triangle" style="color: white;position: absolute;left: 13px;bottom: 30px;font-size: 20px;"></span>
         <p style="color: white;">
           Este es un mensaje de alerta para notificar a los usuarios que necesiten algo.
         </p>
