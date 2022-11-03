@@ -15,10 +15,10 @@ $desa = $registro->obtener_categorias_desague();
 $cdesa = $fn->cuentarray($desa);
 ?>
 <style>
-    .highcharts-title{
+    /* .highcharts-title{
         color: white !important;
         fill: white !important;
-    }
+    } */
     .accordion-header {
         margin-bottom: 0;
     }
@@ -41,7 +41,7 @@ $cdesa = $fn->cuentarray($desa);
         overflow: hidden;
         font-size: 0.75rem;
         background-color: transparent;
-        border: 1px solid white;
+        border: 1px solid gray;
         border-radius: 0.25rem;
         box-shadow: inset 0 0.1rem 0.1rem rgb(0 0 0 / 10%);
     }
@@ -50,7 +50,7 @@ $cdesa = $fn->cuentarray($desa);
     <div class="col-sm-12">
         <div class="panel">
             <div class="row panel-heading">
-                <div class="col-sm-6 white">
+                <div class="col-sm-6">
                     PANEL PRINCIPAL
                 </div>
             </div>
@@ -58,7 +58,7 @@ $cdesa = $fn->cuentarray($desa);
                 <div class="left full  relative paddingtop15" id="content">
                     <figure class="highcharts-figure">
                         <div id="container"></div>
-                        <p class="highcharts-description white">
+                        <p class="highcharts-description">
                             Esta grafica representa las veces en las que hubo registro de desague en los diferentes dispositivos
                         </p>
                     </figure>
@@ -148,17 +148,17 @@ $cdesa = $fn->cuentarray($desa);
 
 <script>
     Highcharts.chart('container', {
-        colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#fff',
-                '#FF9655', '#FFF263', '#00000'],
-        chart: {
-            backgroundColor: {
-                linearGradient: [0, 0, 500, 500],
-                stops: [
-                    [0, 'rgb(42, 45, 63)'],
-                    [1, 'rgb(26, 32, 53)']
-                ]
-            },
-        },
+        colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#000000',
+                '#FF9655', '#FFF263', '#32A79B'],
+        // chart: {
+        //     backgroundColor: {
+        //         linearGradient: [0, 0, 500, 500],
+        //         stops: [
+        //             [0, 'rgb(42, 45, 63)'],
+        //             [1, 'rgb(26, 32, 53)']
+        //         ]
+        //     },
+        // },
         title: {
             text: 'Registro de desague de vehiculos'
         },

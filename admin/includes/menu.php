@@ -55,7 +55,13 @@
                     <li>
                         <a onclick="getPageMenu('pr-carga-descarga')" style="margin-left: -10px;">
                             <i class="fal fa-digital-tachograph white"></i>
-                            <span>Registro de carga y descarga</span>
+                            <span>Carga y descarga</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="getPageMenu('pr-registro-desague')" style="margin-left: -10px;">
+                            <i class="fal fa-digital-tachograph white"></i>
+                            <span>Registro de desague</span>
                         </a>
                     </li>
                 </ul>

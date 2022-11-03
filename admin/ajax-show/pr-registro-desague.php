@@ -7,7 +7,7 @@ use nsfunciones\funciones;
 $info   = new registros();
 $fn     = new funciones();
 
-$registro = $info->obtener_registros_gasolina();
+$registro = $info->obtener_folios_desague();
 $cregistro = $fn->cuentarray($registro);
 
 ?>
@@ -24,7 +24,7 @@ $cregistro = $fn->cuentarray($registro);
         <div class="panel">
             <div class="row panel-heading">
                 <div class="col-sm-6">
-                    Historial de registros
+                    Historial de desagüe
                 </div>
                 <div class="col-sm-12 mright textright">
                     <button id="idtest" onclick="universalLoad(this)" data-postload="0" data-regresar="pr-registro-gasolina" data-valores="" data-form="" data-page="registro-gasolina-add" data-carpeta="ajax-add" data-load="contenedor" data-id="" class="btngral botonVerde mright"><span class="fas fa-plus-circle font16"></span><span class="letrablanca font14">
@@ -37,21 +37,27 @@ $cregistro = $fn->cuentarray($registro);
                     <table class="display fullimportant table" id="tabla">
                         <thead>
                             <tr>
-                                <th> # </th>
-                                <th> Empresa </th>
+                                <th> FOLIO </th>
+                                <th> Vehiculo/Transporte </th>
                                 <th> Fecha </th>
+                                <th> Hora </th>
                                 <th> Cantidad </th>
-                                <th> Importe </th>
                             </tr>
                         </thead>
                         <tbody class="boder-table">
                         <?php for($i = 0,$a=0; $i < $cregistro; $i++){ $a = $a+1;?>
-                            <tr onclick="universalLoad(this)" class="backgruoun-table" data-postload="0" data-returnpage="pr-registro-gasolina" data-form="" data-page="registro-gasolina-edit" data-carpeta="ajax-edit" data-load="contenedor" data-valores="" data-id="<?php echo $registro["id"][$i]; ?>">
-                                <td class="backgruoun-table"><?php echo $a; ?></td>
-                                <td><?php echo $registro['empresa'][$i]; ?></td>
-                                <td><?php echo $registro['fch_carga'][$i]; ?></td>
-                                <td><?php echo $registro['cantidad_litros'][$i]; ?></td>
-                                <td><?php echo $registro['importe'][$i]; ?></td>
+                            <tr>
+                                <td class="backgruoun-table">FOL-<?php echo $registro['id'][$i]; ?></td>
+                                <?php $jsonvehiculos = $_SESSION['vehiculos'];
+                                        $json = json_encode($jsonvehiculos);
+                                        $json = json_decode($json);
+                                        for($a=0;$a<$_SESSION["totaldispositivos"];$a++){ 
+                                            if($json[$a]->ID == $registro['id_tracker'][$i]){?>
+                                <td><?php echo $json[$a]->nombre ?></td>
+                                <?php } }?>
+                                <td><?php echo $registro['fch_registro'][$i]; ?></td>
+                                <td><?php echo $registro['hra_registro'][$i]; ?></td>
+                                <td><?php echo $registro['registro'][$i]; ?></td>
                             </tr>
                         <?php } ?>    
                         </tbody>    

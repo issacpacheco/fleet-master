@@ -12,12 +12,12 @@ $cregistro = $fn->cuentarray($registro);
 
 ?>
 <style>
-    .backgruoun-table{
+    /* .backgruoun-table{
         background-color: #1a2035 !important;
     }
     .border-table{
         background-color: #fff !important;
-    }
+    } */
 </style>
 <div class="row">
     <div class="col-sm-12">

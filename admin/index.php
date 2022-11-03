@@ -329,7 +329,18 @@ include("ajax-get/obtener-lista.php");
 								// console.log(Number(ultimo_valor - inc));
 								restante = Number(ultimo_valor - inc);
 								if(restante >= 5){
-									alertaRoja("El vehiculo <?php echo $json[$i]->nombre; ?> Reporte de desagüe aprox. " + restante.toFixed(2) + " Litros");
+                  <?php if($json[$i]->ID == 1639922 || 
+                           $json[$i]->ID == 1641473 || 
+                           $json[$i]->ID == 1641474 || 
+                           $json[$i]->ID == 1639660 || 
+                           $json[$i]->ID == 1639675 || 
+                           $json[$i]->ID == 1639680 || 
+                           $json[$i]->ID == 1639684 ||
+                           $json[$i]->ID == 1639688 ||
+                           $json[$i]->ID == 1639689 ||
+                           $json[$i]->ID == 1639936){ }else{ ?>
+                    alertaRoja("El vehiculo <?php echo $json[$i]->nombre; ?> Reporte de desagüe aprox. " + restante.toFixed(2) + " Litros");
+                  <?php } ?>
                   $.ajax({
                     type: "POST",
                     url: "ajax-save/registro-desague.php",
